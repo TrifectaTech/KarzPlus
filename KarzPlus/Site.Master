@@ -6,16 +6,17 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - KarzPlus Car Rental</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
+
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -38,6 +39,11 @@
             </Scripts>
         </asp:ScriptManager>
 
+        <!-- bxSlider Javascript file -->
+        <script src="Scripts/jquery.bxslider.js"></script>
+        <!-- bxSlider CSS file -->
+        <link href="<%= ResolveUrl("~/Content/jquery.bxslider.css") %>" rel="Stylesheet" type="text/css" />
+
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -46,11 +52,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <asp:ImageButton runat="server" ID="btnLogo" PostBackUrl="~/" AlternateText="KarzPlus" ImageUrl="~/Content/Images/KarzPlusLogoHeader.png" />
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
+                        <li><a id="A1" runat="server" href="~/BrowseInventory">Browse Inventory</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
@@ -78,7 +85,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - KarzPlus</p>
             </footer>
         </div>
     </form>

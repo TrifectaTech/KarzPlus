@@ -2,10 +2,34 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.bxslider').bxSlider({
+                mode: 'fade',
+                captions: true
+            });
+        });
+
+    </script>
+
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        <h1>KarzPlus</h1>
+        <p class="lead">KarzPlus is a leading and affordable car rental agency offering a competitive solution for your rental needs</p>
+    </div>
+
+    <div class="text-center">
+        <ul class="bxslider">
+            <li>
+                <img src="Content/Images/AltimaCoupe.jpg" title="Premium Collection - 2008 Nissan Altima 3.5 SE" width="525px" height="400px" />
+            </li>
+            <li>
+                <img src="Content/Images/AudiA4.jpg" title="Premium Collection - 2013 Audi A4 2.0T" width="525px" height="400px" /></li>
+            <li>
+                <img src="Content/Images/BMW328i.jpg" title="Premium Collection - 2012 BMW 328i Sport" width="525px" height="400px" /></li>
+            <li>
+                <img src="Content/Images/Boss302.jpg" title="Premium Collection - 2012 Ford Boss 302" width="525px" height="400px" /></li>
+        </ul>
     </div>
 
     <div class="row">
