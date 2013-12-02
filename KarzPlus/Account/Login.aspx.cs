@@ -1,4 +1,5 @@
 ﻿using System.Web.Security;
+using System.Web.UI.WebControls;
 using KarzPlus.Entities.ExtensionMethods;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -35,5 +36,6 @@ namespace KarzPlus.Account
 					? @"You are locked out. Please contact the administrator."
 					: @"Your login attempt was not successful. Please try again.";
 		}
+
 	}
 }

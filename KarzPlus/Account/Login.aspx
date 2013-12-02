@@ -1,7 +1,7 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="KarzPlus.Account.Login" Async="true" %>
+﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="KarzPlus.Account.Login"  %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-	<asp:Login ID="lgnKarzPlus" runat="server" DisplayRememberMe="False" RememberMeSet="False" TitleText="Please Log In"
+	<asp:Login ID="lgnKarzPlus" runat="server" DisplayRememberMe="False" RememberMeSet="False" TitleText="Please Log In" MembershipProvider="KarzPlusAspNetSqlMembershipProvider"
 		OnLoggedIn="lgnKarzPlus_LoggedIn" OnLoginError="lgnKarzPlus_LoginError">
 		<InstructionTextStyle Font-Italic="True" ForeColor="Black" />
 		<LayoutTemplate>
