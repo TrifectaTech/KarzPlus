@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KarzPlus.Account {
+namespace KarzPlus {
     
     
     public partial class Register {

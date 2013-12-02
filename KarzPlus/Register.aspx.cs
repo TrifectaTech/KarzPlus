@@ -1,14 +1,6 @@
-﻿using System.Web.Security;
-using KarzPlus.Entities.ExtensionMethods;
-using Microsoft.Ajax.Utilities;
-using Microsoft.AspNet.Identity;
-using System;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+﻿using System.Web.UI;
 
-
-namespace KarzPlus.Account
+namespace KarzPlus
 {
     public partial class Register : Page
     {
