@@ -1,30 +1,85 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
+﻿using System.Web.Security;
+using KarzPlus.Entities.ExtensionMethods;
+using Microsoft.Ajax.Utilities;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using KarzPlus.Models;
+
 
 namespace KarzPlus.Account
 {
     public partial class Register : Page
     {
-        protected void CreateUser_Click(object sender, EventArgs e)
-        {
-            var manager = new UserManager();
-            var user = new ApplicationUser() { UserName = UserName.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
-            if (result.Succeeded)
-            {
-                IdentityHelper.SignIn(manager, user, isPersistent: false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else 
-            {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }
-        }
+		//protected void CreateUser_Click(object sender, EventArgs e)
+		//{
+		//	//MembershipCreateStatus status;
+		//	//MembershipUser membership
+		//	//	= Membership.CreateUser(txtUsername.Text.TrimSafely(),
+		//	//							txtPassword.Text.TrimSafely(),
+		//	//							txtEmail.Text.TrimSafely(),
+		//	//							string.Empty,
+		//	//							string.Empty,
+		//	//							true,
+		//	//							out status);
+
+		//	//string errorMessage = string.Empty;
+
+		//	//switch (status)
+		//	//{
+		//	//	case MembershipCreateStatus.InvalidQuestion:
+		//	//		errorMessage = "Invalid Password Question.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.InvalidAnswer:
+		//	//		errorMessage = "Invalid Password Answer.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.InvalidEmail:
+		//	//		errorMessage = "Invalid Email.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.InvalidUserName:
+		//	//		errorMessage = "Invalid User Name.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.InvalidPassword:
+		//	//		errorMessage = "Invalid Password.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.InvalidProviderUserKey:
+		//	//		errorMessage = "Invalid Provider User Key.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.DuplicateProviderUserKey:
+		//	//		errorMessage = "Duplicate Provider User Key.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.ProviderError:
+		//	//		errorMessage = "Unknown Provider Error.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.DuplicateUserName:
+		//	//		errorMessage = "Duplicate User Name.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.DuplicateEmail:
+		//	//		errorMessage = "Duplicate Email.";
+		//	//		break;
+
+		//	//	case MembershipCreateStatus.UserRejected:
+		//	//		errorMessage = "User was rejected for unspecified reason(s).";
+		//	//		break;
+		//	//}
+
+		//	//if (errorMessage.HasValue())
+		//	//{
+		//	//	ErrorMessage.Text = errorMessage;
+		//	//}
+		//	//else
+		//	//{
+		//	//}
+		//}
     }
 }

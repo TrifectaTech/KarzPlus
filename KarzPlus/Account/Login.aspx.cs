@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Web.Security;
+using KarzPlus.Entities.ExtensionMethods;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -6,41 +8,32 @@ using System;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using KarzPlus.Models;
 
 namespace KarzPlus.Account
 {
-    public partial class Login : Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            RegisterHyperLink.NavigateUrl = "Register";
-            OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
-            {
-                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
-        }
+	public partial class Login : Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			lgnKarzPlus.Focus();
+			if (User.Identity.IsAuthenticated)
+			{
+				Response.Redirect("~/Default.aspx");
+			}
+		}
 
-        protected void LogIn(object sender, EventArgs e)
-        {
-            if (IsValid)
-            {
-                // Validate the user password
-                var manager = new UserManager();
-                ApplicationUser user = manager.Find(UserName.Text, Password.Text);
-                if (user != null)
-                {
-                    IdentityHelper.SignIn(manager, user, RememberMe.Checked);
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                }
-                else
-                {
-                    FailureText.Text = "Invalid username or password.";
-                    ErrorMessage.Visible = true;
-                }
-            }
-        }
-    }
+		protected void lgnKarzPlus_LoggedIn(object sender, EventArgs e)
+		{
+			Response.Redirect("~/Default.aspx");
+		}
+
+		protected void lgnKarzPlus_LoginError(object sender, EventArgs e)
+		{
+			MembershipUser membershipUser = Membership.GetUser(lgnKarzPlus.UserName);
+			lgnKarzPlus.FailureText
+				= membershipUser != null && membershipUser.IsLockedOut
+					? @"You are locked out. Please contact the administrator."
+					: @"Your login attempt was not successful. Please try again.";
+		}
+	}
 }
