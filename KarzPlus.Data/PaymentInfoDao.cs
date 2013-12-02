@@ -2,7 +2,7 @@
 // <copyright file="PaymentInfoDao.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>KEscobar</author>
 // <summary>
 //  PaymentInfo Data Layer Object.   
 // </summary>

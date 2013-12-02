@@ -2,7 +2,7 @@
 // <copyright file="SearchCarMake.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JDuverge</author>
 // <summary>
 //  SearchCarMake Search Entity Object.   
 // </summary>

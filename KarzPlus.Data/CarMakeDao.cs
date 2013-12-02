@@ -2,7 +2,7 @@
 // <copyright file="CarMakeDao.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JDuverge</author>
 // <summary>
 //  CarMake Data Layer Object.   
 // </summary>

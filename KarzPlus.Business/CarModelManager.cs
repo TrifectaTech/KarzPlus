@@ -2,7 +2,7 @@
 // <copyright file="CarModelManager.cs" >
 //     � 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JDuverge</author>
 // <summary>
 // Encapsulate business logic of CarModel.   
 // </summary>

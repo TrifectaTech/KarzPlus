@@ -2,7 +2,7 @@
 // <copyright file="LocationManagerTest.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JOrtega</author>
 // <summary>
 //  Location Test Layer Object.   
 // </summary>

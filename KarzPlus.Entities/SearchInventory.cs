@@ -2,7 +2,7 @@
 // <copyright file="SearchInventory.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JDuverge</author>
 // <summary>
 //  SearchInventory Search Entity Object.   
 // </summary>

@@ -2,7 +2,7 @@
 // <copyright file="CarModelDao.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JDuverge</author>
 // <summary>
 //  CarModel Data Layer Object.   
 // </summary>

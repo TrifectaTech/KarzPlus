@@ -2,7 +2,7 @@
 // <copyright file="TransactionDao.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>KEscobar</author>
 // <summary>
 //  Transaction Data Layer Object.   
 // </summary>

@@ -2,7 +2,7 @@
 // <copyright file="CarMake.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JDuverge</author>
 // <summary>
 //  CarMake Entity Layer Object.   
 // </summary>

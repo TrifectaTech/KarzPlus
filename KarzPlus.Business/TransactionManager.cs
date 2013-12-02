@@ -2,7 +2,7 @@
 // <copyright file="TransactionManager.cs" >
 //     � 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>KEscobar</author>
 // <summary>
 // Encapsulate business logic of Transaction.   
 // </summary>

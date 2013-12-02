@@ -2,7 +2,7 @@
 // <copyright file="InventoryDao.cs" >
 //     © 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JDuverge</author>
 // <summary>
 //  Inventory Data Layer Object.   
 // </summary>
