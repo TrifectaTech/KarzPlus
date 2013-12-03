@@ -40,6 +40,8 @@ namespace KarzPlus.Data
                         new SqlParameter("@City", item.City),
                         new SqlParameter("@State", item.State),
                         new SqlParameter("@Zip", item.Zip),
+						new SqlParameter("@Phone", item.Phone),
+						new SqlParameter("@Email", item.Email),
                         new SqlParameter("@Deleted", item.Deleted)
 					};
 
@@ -82,6 +84,8 @@ namespace KarzPlus.Data
                         new SqlParameter("@City", item.City),
                         new SqlParameter("@State", item.State),
                         new SqlParameter("@Zip", item.Zip),
+						new SqlParameter("@Phone", item.Phone),
+						new SqlParameter("@Email", item.Email),
                         new SqlParameter("@Deleted", item.Deleted)
 					};
 			return Convert.ToInt32(DataManager.ExecuteScalarProcedure(KarzPlusConnectionString, "PKP_InsertLocation", parameters));
@@ -102,6 +106,8 @@ namespace KarzPlus.Data
                         new SqlParameter("@City", item.City),
                         new SqlParameter("@State", item.State),
                         new SqlParameter("@Zip", item.Zip),
+						new SqlParameter("@Phone", item.Phone),
+						new SqlParameter("@Email", item.Email),
                         new SqlParameter("@Deleted", item.Deleted)
 					};
 			DataManager.ExecuteProcedure(KarzPlusConnectionString, "PKP_UpdateLocation", parameters);
@@ -136,6 +142,8 @@ namespace KarzPlus.Data
 					City = row.GetValue<string>("City").TrimSafely(),
 					State = row.GetValue<string>("State").TrimSafely(),
 					Zip = row.GetValue<string>("Zip").TrimSafely(),
+					Phone = row.GetValue<string>("Phone").TrimSafely(),
+					Email = row.GetValue<string>("Email").TrimSafely(),
 					Deleted = row.GetValue<bool>("Deleted")
 				});
 		}

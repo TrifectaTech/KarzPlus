@@ -48,6 +48,16 @@ namespace KarzPlus.Entities
         /// </summary>
         public string Zip { get; set; }
 
+		/// <summary>
+		/// Gets or sets Phone
+		/// </summary>
+		public string Phone { get; set; }
+
+		/// <summary>
+		/// Gets or sets Email
+		/// </summary>
+		public string Email { get; set ; }
+
         /// <summary>
         /// Gets or sets Deleted.
         /// </summary>
@@ -64,6 +74,8 @@ namespace KarzPlus.Entities
             City = null;
             State = null;
             Zip = null;
+	        Phone = null;
+	        Email = null;
             Deleted = null;
         }
 	}

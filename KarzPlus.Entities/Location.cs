@@ -175,6 +175,50 @@ namespace KarzPlus.Entities
             }
         }
 
+		private string phone;
+
+		/// <summary>
+		/// Gets or sets Phone
+		/// </summary>
+		[SqlName("Phone")]
+		public string Phone
+		{
+			get
+			{
+				return phone;
+			}
+			set
+			{
+				if (value != phone)
+				{
+					phone = value;
+					IsItemModified = true;
+				}
+			}
+		}
+
+		private string email;
+
+		/// <summary>
+		/// Gets or sets Email
+		/// </summary>
+		[SqlName("Email")]
+		public string Email
+		{
+			get
+			{
+				return email;
+			}
+			set
+			{
+				if (value != email)
+				{
+					email = value;
+					IsItemModified = true;
+				}
+			}
+		}
+
         /// <summary>
         /// Initializes a new instance of the Location class.
         /// </summary>
@@ -186,6 +230,8 @@ namespace KarzPlus.Entities
             City = default(string);
             State = default(string);
             Zip = default(string);
+	        Phone = default(string);
+	        Email = default(string);
             Deleted = default(bool);
             IsItemModified = false;
         }
