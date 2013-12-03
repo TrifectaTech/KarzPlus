@@ -12,7 +12,7 @@
         <hr />
         <asp:CreateUserWizard runat="server" ID="cuwUserWizard" 
             ContinueDestinationPageUrl="~/Default.aspx"
-            MembershipProvider="KarzPlusAspNetSqlMembershipProvider">
+            MembershipProvider="KarzPlusAspNetSqlMembershipProvider" OnCreatedUser="cuwUserWizard_OnCreatedUser">
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server">
                     <ContentTemplate>

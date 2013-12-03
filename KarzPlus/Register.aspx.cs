@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -32,6 +33,13 @@ namespace KarzPlus
             {
                 btnContinueButton.Focus();
             }
+        }
+
+        protected void cuwUserWizard_OnCreatedUser(object sender, EventArgs e)
+        {
+            string userName = cuwUserWizard.UserName;
+
+            Roles.AddUserToRole(userName, "Member");
         }
     }
 }
