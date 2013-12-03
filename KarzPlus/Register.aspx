@@ -13,16 +13,16 @@
 
     </script>
     <%-- ReSharper restore Html.IdNotResolved --%>
-
+    
     <h2><%: Title %>.</h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
 
-    <div class="form-horizontal">
+    <asp:Panel runat="server" CssClass="form-horizontal" DefaultButton="MainContent_cuwUserWizard___CustomNav0_StepNextButtonButton">
         <h4>Create a new account.</h4>
         <hr />
-        <asp:CreateUserWizard runat="server" ID="cuwUserWizard"
+        <asp:CreateUserWizard runat="server" ID="cuwUserWizard" 
             ContinueDestinationPageUrl="~/Default.aspx"
             MembershipProvider="KarzPlusAspNetSqlMembershipProvider">
             <WizardSteps>
@@ -110,5 +110,5 @@
                 </asp:CompleteWizardStep>
             </WizardSteps>
         </asp:CreateUserWizard>
-    </div>
+    </asp:Panel>
 </asp:Content>
