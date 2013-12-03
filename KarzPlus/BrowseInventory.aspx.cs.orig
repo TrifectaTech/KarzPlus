@@ -4,7 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+<<<<<<< HEAD
 using KarzPlus.Business;
+=======
+>>>>>>> 39bc598a4582a47c2882c723f3c7bf8d39b96a61
 
 namespace KarzPlus
 {
@@ -29,7 +32,11 @@ namespace KarzPlus
         {
             if (!e.IsFromDetailTable)
             {
+<<<<<<< HEAD
                 grdresults.DataSource = CarInventoryViewManager.GetOnSearchFields(1, 1, "FL").ToList();
+=======
+                //grdresults.DataSource = 
+>>>>>>> 39bc598a4582a47c2882c723f3c7bf8d39b96a61
             }
         }
 

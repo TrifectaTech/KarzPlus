@@ -57,7 +57,7 @@ namespace KarzPlus.Data
                         new SqlParameter("@LocationDeleted", item.LocationDeleted)
 					};
 
-            DataSet set = DataManager.ExecuteProcedure(KarzPlusConnectionString, "PKP_GetCarMake", parameters);
+            DataSet set = DataManager.ExecuteProcedure(KarzPlusConnectionString, "PKP_GetVKP_CarInventory", parameters);
             IEnumerable<DataRow> dataRows = set.GetRowsFromDataSet();
             return ConvertToEntityObject(dataRows);
         }
