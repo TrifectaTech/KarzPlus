@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarInventoryView.cs" />
+    <Compile Include="CarInventoryViewSearch.cs" />
     <Compile Include="CarMake.cs" />
     <Compile Include="CarModel.cs" />
     <Compile Include="Common\Enumerations.cs" />
