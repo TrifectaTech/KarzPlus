@@ -95,6 +95,8 @@
             </div>
         </div>
         <div class="container body-content">
+            <br/>
+            <br/>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

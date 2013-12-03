@@ -35,7 +35,7 @@
                             </p>
                         </asp:Panel>
 
-                        <fieldset class="form-group">
+                        <fieldset>
                             <legend>Billing Information</legend>
                             <table>
                                 <tr>
