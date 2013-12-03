@@ -63,6 +63,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarInventoryViewManager.cs" />
     <Compile Include="CarMakeManager.cs" />
     <Compile Include="CarModelManager.cs" />
     <Compile Include="InventoryManager.cs" />

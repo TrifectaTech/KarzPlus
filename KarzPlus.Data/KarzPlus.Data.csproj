@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarInventoryViewDao.cs" />
     <Compile Include="CarMakeDao.cs" />
     <Compile Include="CarModelDao.cs" />
     <Compile Include="Common\BaseDao.cs" />
