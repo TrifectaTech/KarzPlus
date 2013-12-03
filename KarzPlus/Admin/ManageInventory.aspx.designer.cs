@@ -10,7 +10,7 @@
 namespace KarzPlus.Admin {
     
     
-    public partial class ManageLocation {
+    public partial class ManageInventory {
         
         /// <summary>
         /// lrapLocation control.

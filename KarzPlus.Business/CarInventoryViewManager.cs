@@ -33,5 +33,17 @@ namespace KarzPlus.Business
             };
             return Search(search);
         }
+
+        public static IEnumerable<CarInventoryView> LoadAllActive()
+        {
+            CarInventoryViewSearch search = new CarInventoryViewSearch
+            {
+                InventoryDeleted= false,
+                LocationDeleted =false,
+                MakeDeleted =false,
+                ModelDeleted = false
+            };
+            return Search(search);
+        }
     }
 }

@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\ManageInventory.aspx" />
     <Content Include="Admin\ManageLocation.aspx" />
     <Content Include="Controls\LocationConfiguration.ascx" />
     <Content Include="Login.aspx" />
@@ -177,6 +178,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ManageInventory.aspx.cs">
+      <DependentUpon>ManageInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageInventory.aspx.designer.cs">
+      <DependentUpon>ManageInventory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -319,7 +327,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

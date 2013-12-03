@@ -17,15 +17,15 @@ namespace KarzPlus.Admin
 
 		}
 
-		protected void grdLocation_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+		protected void grdInventory_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
 		{
 			if (!e.IsFromDetailTable)
 			{
-				grdLocation.DataSource = LocationManager.LoadAll().ToList();
+				grdInventory.DataSource = LocationManager.LoadAll().ToList();
 			}
 		}
 
-		protected void grdLocation_ItemDataBound(object sender, GridItemEventArgs e)
+		protected void grdInventory_ItemDataBound(object sender, GridItemEventArgs e)
 		{
 			if (e.Item is GridEditableItem && e.Item.IsInEditMode)
 			{
@@ -38,17 +38,17 @@ namespace KarzPlus.Admin
 			}
 		}
 
-		protected void grdLocation_InsertCommand(object sender, GridCommandEventArgs e)
+		protected void grdInventory_InsertCommand(object sender, GridCommandEventArgs e)
 		{
 			throw new NotImplementedException();
 		}
 
-		protected void grdLocation_UpdateCommand(object sender, GridCommandEventArgs e)
+		protected void grdInventory_UpdateCommand(object sender, GridCommandEventArgs e)
 		{
 			throw new NotImplementedException();
 		}
 
-		protected void grdLocation_DeleteCommand(object sender, GridCommandEventArgs e)
+		protected void grdInventory_DeleteCommand(object sender, GridCommandEventArgs e)
 		{
 			throw new NotImplementedException();
 		}
