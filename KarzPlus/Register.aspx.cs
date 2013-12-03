@@ -1,77 +1,34 @@
-﻿using System.Web.UI;
+﻿using System;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace KarzPlus
 {
     public partial class Register : Page
     {
-		//protected void CreateUser_Click(object sender, EventArgs e)
-		//{
-		//	//MembershipCreateStatus status;
-		//	//MembershipUser membership
-		//	//	= Membership.CreateUser(txtUsername.Text.TrimSafely(),
-		//	//							txtPassword.Text.TrimSafely(),
-		//	//							txtEmail.Text.TrimSafely(),
-		//	//							string.Empty,
-		//	//							string.Empty,
-		//	//							true,
-		//	//							out status);
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
 
-		//	//string errorMessage = string.Empty;
+        protected void StepNextButton_OnPreRender(object sender, EventArgs e)
+        {
+            Button btnStepNextButton = sender as Button;
 
-		//	//switch (status)
-		//	//{
-		//	//	case MembershipCreateStatus.InvalidQuestion:
-		//	//		errorMessage = "Invalid Password Question.";
-		//	//		break;
+            if (btnStepNextButton != null)
+            {
+                Page.Form.DefaultButton = btnStepNextButton.UniqueID;
+            }
+        }
 
-		//	//	case MembershipCreateStatus.InvalidAnswer:
-		//	//		errorMessage = "Invalid Password Answer.";
-		//	//		break;
+        protected void ContinueButton_OnPreRender(object sender, EventArgs e)
+        {
+            Button btnContinueButton = sender as Button;
 
-		//	//	case MembershipCreateStatus.InvalidEmail:
-		//	//		errorMessage = "Invalid Email.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.InvalidUserName:
-		//	//		errorMessage = "Invalid User Name.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.InvalidPassword:
-		//	//		errorMessage = "Invalid Password.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.InvalidProviderUserKey:
-		//	//		errorMessage = "Invalid Provider User Key.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.DuplicateProviderUserKey:
-		//	//		errorMessage = "Duplicate Provider User Key.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.ProviderError:
-		//	//		errorMessage = "Unknown Provider Error.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.DuplicateUserName:
-		//	//		errorMessage = "Duplicate User Name.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.DuplicateEmail:
-		//	//		errorMessage = "Duplicate Email.";
-		//	//		break;
-
-		//	//	case MembershipCreateStatus.UserRejected:
-		//	//		errorMessage = "User was rejected for unspecified reason(s).";
-		//	//		break;
-		//	//}
-
-		//	//if (errorMessage.HasValue())
-		//	//{
-		//	//	ErrorMessage.Text = errorMessage;
-		//	//}
-		//	//else
-		//	//{
-		//	//}
-		//}
+            if (btnContinueButton != null)
+            {
+                btnContinueButton.Focus();
+            }
+        }
     }
 }

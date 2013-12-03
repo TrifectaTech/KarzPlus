@@ -47,6 +47,21 @@ namespace KarzPlus.Business
         }
 
         /// <summary>
+        /// Loads All CarMake
+        /// </summary>
+        /// <param name="makeId"></param>
+        /// <returns>IEnumerable CarMake entity</returns>
+        public static IEnumerable<CarMake> LoadAll()
+        {
+            SearchCarMake search
+                = new SearchCarMake
+                {
+                    Deleted = false
+                };
+            return Search(search);
+        }
+
+        /// <summary>
         /// Save CarMake Entity
         /// </summary>
         /// <param name="item">Entity to save</param>

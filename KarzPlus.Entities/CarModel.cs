@@ -21,6 +21,7 @@ namespace KarzPlus.Entities
 	{
 		public bool IsItemModified { get; set; }
 
+
         private int? modelId;
 
         /// <summary>
