@@ -98,6 +98,7 @@
     <Content Include="About.aspx" />
     <Content Include="Admin\ManageInventory.aspx" />
     <Content Include="Admin\ManageLocation.aspx" />
+    <Content Include="Controls\InventoryConfiguration.ascx" />
     <Content Include="Controls\LocationConfiguration.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
@@ -194,6 +195,12 @@
     </Compile>
     <Compile Include="Admin\ManageLocation.aspx.designer.cs">
       <DependentUpon>ManageLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InventoryConfiguration.ascx.cs">
+      <DependentUpon>InventoryConfiguration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InventoryConfiguration.ascx.designer.cs">
+      <DependentUpon>InventoryConfiguration.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\LocationConfiguration.ascx.cs">
       <DependentUpon>LocationConfiguration.ascx</DependentUpon>
