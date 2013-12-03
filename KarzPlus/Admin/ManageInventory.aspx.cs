@@ -30,27 +30,34 @@ namespace KarzPlus.Admin
             if (e.Item is GridEditableItem && e.Item.IsInEditMode)
             {
                 GridEditableItem item = e.Item as GridEditableItem;
-                //LocationConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as LocationConfiguration;
-                //if (userControl != null)
-                //{
+                KarzPlus.Controls.InventoryConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as KarzPlus.Controls.InventoryConfiguration;
+                if (userControl != null)
+                {
+                    if (!(item is GridEditFormInsertItem))
+                    {
+                        int inventoryId = (int)item.GetDataKeyValue("InventoryId");
+                        userControl.InventoryId = inventoryId;
+                        userControl.EditOption = true;
+                    }
 
-               // }
+                    userControl.ReloadControl();
+                }
             }
         }
 
         protected void grdInventory_InsertCommand(object sender, GridCommandEventArgs e)
         {
-            throw new NotImplementedException();
         }
 
         protected void grdInventory_UpdateCommand(object sender, GridCommandEventArgs e)
         {
-            throw new NotImplementedException();
         }
 
         protected void grdInventory_DeleteCommand(object sender, GridCommandEventArgs e)
         {
-            throw new NotImplementedException();
+            GridDataItem item = (e.Item as GridDataItem);
+            int id = (int)item.GetDataKeyValue("InventoryId");
+            InventoryManager.Delete(id);
         }
     }
 }

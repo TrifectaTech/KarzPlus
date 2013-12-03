@@ -21,6 +21,7 @@ namespace KarzPlus.Entities
 	{
 		public bool IsItemModified { get; set; }
 
+        public string FullAddress { get { return string.Format("Location Name- {0} Address: {1} {2}, {3}, {4}", Name, Address, City, State, Zip); } }
         private int? locationId;
 
         /// <summary>

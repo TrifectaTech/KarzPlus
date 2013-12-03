@@ -34,6 +34,15 @@ namespace KarzPlus.Business
             return Search(search);
         }
 
+        public static CarInventoryView LoadOnInventoryId(int inventoryId)
+        {
+            CarInventoryViewSearch search = new CarInventoryViewSearch
+            {
+                InventoryId = inventoryId
+            };
+            return Search(search).FirstOrDefault();
+        }
+
         public static IEnumerable<CarInventoryView> LoadAllActive()
         {
             CarInventoryViewSearch search = new CarInventoryViewSearch

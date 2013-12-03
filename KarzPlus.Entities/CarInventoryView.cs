@@ -124,7 +124,7 @@ namespace KarzPlus.Entities
         /// </summary>
         public bool? LocationDeleted { get; set; }
 
-        public string FullAddress { get { return string.Format("Location Name- {0} Address: {1} {2}, {3}, {4}", LocationName ,Address, City, State, Zip, LocationId); } }
+        public string FullAddress { get { return string.Format("Location Name- {0} Address: {1} {2}, {3}, {4}", LocationName ,Address, City, State, Zip); } }
 
 
         /// <summary>

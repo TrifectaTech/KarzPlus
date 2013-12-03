@@ -18,7 +18,7 @@
 
             </td>
             <td>
-                Location:
+                State:
             </td>
             <td>
                 <telerik:RadComboBox ID="ddlLocation" runat="server" EnableVirtualScrolling="true" MaxHeight="200px" OnLoad="ddlLocation_Load" />
