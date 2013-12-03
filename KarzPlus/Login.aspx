@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="KarzPlus.Login" %>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <asp:Panel runat="server" ID="pnlLogin" DefaultButton="lgnKarzPlus$LoginButton">
-        <asp:Login ID="lgnKarzPlus" runat="server" DisplayRememberMe="False" RememberMeSet="False" TitleText="Please Log In" MembershipProvider="KarzPlusAspNetSqlMembershipProvider"
-            OnLoggedIn="lgnKarzPlus_LoggedIn" OnLoginError="lgnKarzPlus_LoginError">
+        <asp:Login ID="lgnKarzPlus" runat="server" DisplayRememberMe="False" RememberMeSet="False" TitleText="Please Log In" MembershipProvider="KarzPlusAspNetSqlMembershipProvider" OnLoginError="lgnKarzPlus_LoginError">
             <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
             <LayoutTemplate>
                 <div>

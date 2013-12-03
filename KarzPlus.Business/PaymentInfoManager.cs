@@ -8,8 +8,10 @@
 // </summary>
 // ---------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web.Security;
 using KarzPlus.Data;
 using KarzPlus.Entities;
@@ -30,7 +32,22 @@ namespace KarzPlus.Business
         public static IEnumerable<PaymentInfo> Search(SearchPaymentInfo search)
         {            
 			return search == null ? new List <PaymentInfo>() : PaymentInfoDao.Search(search);
-        }	
+        }
+
+        /// <summary>
+        // 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>An IEnumerable set of PaymentInfo</returns>
+        public static IEnumerable<PaymentInfo> LoadByUserId(Guid userId)
+        {
+            SearchPaymentInfo search = new SearchPaymentInfo
+            {
+                UserId = userId
+            };
+
+            return Search(search);
+        }
 	     
         /// <summary>
         /// Loads PaymentInfo by the id parameter
@@ -72,31 +89,42 @@ namespace KarzPlus.Business
         /// <param name="errorMessage">error message if validation failed</param>
         /// <returns>return true if entity passes validation logic, else return false</returns>
         public static bool Validate(PaymentInfo item, out string errorMessage)
-        {		
-			errorMessage = string.Empty;
+        {
+            MembershipUser user = Membership.GetUser(item.UserId);
 
-			MembershipUser user = Membership.GetUser(item.UserId);
+            StringBuilder builder = new StringBuilder();
+
 			if (user == null)
 			{
-				errorMessage += "UserId must be valid. ";
+				builder.AppendHtmlLine("*UserId must be valid");
 			}
 
 	        if (item.CreditCardNumber.IsNullOrWhiteSpace())
 	        {
-		        errorMessage += "CreditCardNumber is required. ";
+		        builder.AppendHtmlLine("*CreditCardNumber is required");
 			}
 
 			if (!item.ExpirationDate.IsValidWithSqlDateStandards())
 			{
-				errorMessage += "ExpirationDate is required and must be valid. ";
+                builder.AppendHtmlLine("*ExpirationDate is required and must be valid");
 			}
 
 	        if (item.BillingAddress.IsNullOrWhiteSpace())
 	        {
-		        errorMessage += "BillingAddress is required. ";
+	            builder.AppendHtmlLine("*Billing Address is required");
 	        }
 
-			errorMessage = errorMessage.TrimSafely();
+            if (item.CreditCardNumber.Length != 16)
+            {
+                builder.AppendHtmlLine("*Credit Card Number must be 16 digits");
+            }
+
+            if (!item.CreditCardNumber.IsNumeric())
+            {
+                builder.AppendLine("*Credit Card Number must be a 16 digit number");
+            }
+
+            errorMessage = builder.ToString();
             
             return errorMessage.IsNullOrWhiteSpace();
         }

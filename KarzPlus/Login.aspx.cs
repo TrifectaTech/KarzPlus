@@ -15,11 +15,6 @@ namespace KarzPlus
 			}
 		}
 
-		protected void lgnKarzPlus_LoggedIn(object sender, EventArgs e)
-		{
-			Response.Redirect("~/Default.aspx");
-		}
-
 		protected void lgnKarzPlus_LoginError(object sender, EventArgs e)
 		{
 			MembershipUser membershipUser = Membership.GetUser(lgnKarzPlus.UserName);
