@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using KarzPlus.Business;
 
 namespace KarzPlus
 {
@@ -28,7 +29,7 @@ namespace KarzPlus
         {
             if (!e.IsFromDetailTable)
             {
-                //grdresults.DataSource = 
+                grdresults.DataSource = CarInventoryViewManager.GetOnSearchFields(1, 1, "FL").ToList();
             }
         }
 
