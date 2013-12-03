@@ -13,7 +13,7 @@ namespace KarzPlus {
     public partial class Register {
         
         /// <summary>
-        /// ltErrorMessage control.
+        /// ErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

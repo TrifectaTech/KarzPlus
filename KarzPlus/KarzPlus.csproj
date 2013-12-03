@@ -96,8 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\ManageCars.aspx" />
     <Content Include="Admin\ManageInventory.aspx" />
     <Content Include="Admin\ManageLocation.aspx" />
+    <Content Include="Admin\ManageSpecials.aspx" />
     <Content Include="Controls\InventoryConfiguration.ascx" />
     <Content Include="Controls\LocationConfiguration.ascx" />
     <Content Include="Login.aspx" />
@@ -121,6 +123,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Admin\Web.config" />
     <None Include="Properties\PublishProfiles\JD.pubxml" />
     <None Include="Properties\PublishProfiles\JO.pubxml" />
     <None Include="Properties\PublishProfiles\KE.pubxml" />
@@ -179,12 +182,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ManageCars.aspx.cs">
+      <DependentUpon>ManageCars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageCars.aspx.designer.cs">
+      <DependentUpon>ManageCars.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManageInventory.aspx.cs">
       <DependentUpon>ManageInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\ManageInventory.aspx.designer.cs">
       <DependentUpon>ManageInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageSpecials.aspx.cs">
+      <DependentUpon>ManageSpecials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageSpecials.aspx.designer.cs">
+      <DependentUpon>ManageSpecials.aspx</DependentUpon>
     </Compile>
     <Compile Include="Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
