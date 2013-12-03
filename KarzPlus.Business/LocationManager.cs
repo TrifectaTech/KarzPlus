@@ -2,7 +2,7 @@
 // <copyright file="LocationManager.cs" >
 //     � 2013 KarzPlus Inc. 
 // </copyright>
-// <author>TODO - CHANGE AUTHOR</author>
+// <author>JOrtega</author>
 // <summary>
 // Encapsulate business logic of Location.   
 // </summary>
@@ -45,6 +45,18 @@ namespace KarzPlus.Business
 					};    
 			return Search(search).FirstOrDefault();
         }
+
+		/// <summary>
+		/// Loads all Locations
+		/// </summary>
+		/// <returns>An IEnumerable set of Location</returns>
+		public static IEnumerable<Location> LoadAll()
+		{
+			return Search(new SearchLocation
+			{
+				Deleted = false
+			});
+		}
 
         /// <summary>
         /// Save Location Entity
@@ -98,6 +110,16 @@ namespace KarzPlus.Business
 	        {
 		        errorMessage += "Zip is required. ";
 	        }
+
+			if (item.Phone.HasValue() && !item.Phone.IsPhone())
+			{
+				errorMessage += "Phone must be valid. ";
+			}
+
+			if (item.Email.HasValue() && !item.Email.IsEmail())
+			{
+				errorMessage += "Email must be valid. ";
+			}
 			
 			errorMessage = errorMessage.TrimSafely();
             

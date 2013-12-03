@@ -316,16 +316,18 @@ namespace KarzPlus.Entities.ExtensionMethods
             return valueToreturn;
         }
 
-        /// <summary>
-        /// Formats Address
-        /// </summary>
-        /// <param name="addressLine1" />
-        /// <param name="addressLine2" />
-        /// <param name="city" />
-        /// <param name="state" />
-        /// <param name="zipCode" />
-        /// <returns>Formatted Address</returns>
-        public static string FormatAddress(string addressLine1,
+	    /// <summary>
+	    /// Formats Address
+	    /// </summary>
+	    /// <param name="addressLine1" />
+	    /// <param name="addressLine2" />
+	    /// <param name="city" />
+	    /// <param name="state" />
+	    /// <param name="zipCode" />
+	    /// <param name="displayOnOneLine" />
+	    /// <param name="useHtml" />
+	    /// <returns>Formatted Address</returns>
+	    public static string FormatAddress(string addressLine1,
                                            string addressLine2,
                                            string city,
                                            string state,
@@ -337,7 +339,7 @@ namespace KarzPlus.Entities.ExtensionMethods
                           secHalf = new StringBuilder();
 
             string compAdd;
-            char[] delims = new[] { ',', ' ' };
+            char[] delims = { ',', ' ' };
 
             if (!addressLine1.IsNullOrWhiteSpace())
             {
@@ -974,8 +976,19 @@ namespace KarzPlus.Entities.ExtensionMethods
         public static bool IsEmail(this string input)
         {
             const string regex = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
-            return ValidateInput(input, regex);
+			return input.ValidateInput(regex);
         }
+
+		/// <summary>
+		/// Validate Phone Number
+		/// </summary>
+		/// <param name="input" />
+		/// <returns>True, if input is valid phone number</returns>
+	    public static bool IsPhone(this string input)
+	    {
+		    const string regex = @"^(\([2-9]|[2-9])(\d{2}|\d{2}\))(-|.|\s)?\d{3}(-|.|\s)?\d{4}$";
+			return input.ValidateInput(regex);
+	    }
 
         /// <summary>
         /// Validate Numeric
@@ -985,7 +998,7 @@ namespace KarzPlus.Entities.ExtensionMethods
         public static bool IsNumeric(this string input)
         {
             const string regex = "^[0-9]+$";
-            return ValidateInput(input, regex);
+			return input.ValidateInput(regex);
         }
 
         /// <summary>
@@ -996,28 +1009,7 @@ namespace KarzPlus.Entities.ExtensionMethods
         public static bool IsAlphanumeric(this string input)
         {
             const string regex = "^[a-zA-Z0-9]+$";
-            return ValidateInput(input, regex);
-        }
-
-        /// <summary>
-        /// Validate SSN
-        /// </summary>
-        /// <param name="input" />
-        /// <returns>True, if input is valid SSN</returns>
-        public static bool IsValidSSN(this string input, bool allowDashes)
-        {
-            return ValidateInput(input, allowDashes ? @"^\d{3}-\d{2}-\d{4}$" : @"^\d{9}$");
-        }
-
-        /// <summary>
-        /// Validate NPI Number
-        /// </summary>
-        /// <param name="input" />
-        /// <returns>True, if input is valid NPI Number</returns>
-        public static bool IsValidNPINumber(this string input)
-        {
-            const string regex = @"^(\d{10})$";
-            return ValidateInput(input, regex);
+			return input.ValidateInput(regex);
         }
 
         /// <summary>
@@ -1026,7 +1018,7 @@ namespace KarzPlus.Entities.ExtensionMethods
         /// <param name="input">String to validate</param>
         /// <param name="regex">Regular expression to validate against</param>
         /// <returns>True, if input is valid against regular expression</returns>
-        private static bool ValidateInput(string input, string regex)
+        private static bool ValidateInput(this string input, string regex)
         {
             return !input.IsNullOrWhiteSpace() && Regex.IsMatch(input, regex);
         }

@@ -23,7 +23,7 @@ namespace KarzPlus.Business
             return search == null ? new List<CarInventoryView>() : CarInventoryViewDao.Search(search);
         }
 
-        public static IEnumerable<CarInventoryView> GetOnSearchFields(int makeId, int modelId, string state)
+        public static IEnumerable<CarInventoryView> GetOnSearchFields(int? makeId, int? modelId, string state)
         {
             CarInventoryViewSearch search = new CarInventoryViewSearch
             {

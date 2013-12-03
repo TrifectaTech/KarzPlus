@@ -46,6 +46,16 @@ namespace KarzPlus.Business
 			return Search(search).FirstOrDefault();
         }
 
+        public static IEnumerable<CarModel> LoadOnMakeId(int makeId)
+        {
+			SearchCarModel search
+				= new SearchCarModel
+					{
+                        MakeId = makeId
+					};    
+			return Search(search);
+        }
+
         /// <summary>
         /// Save CarModel Entity
         /// </summary>

@@ -46,6 +46,21 @@ namespace KarzPlus.Business
 			return Search(search).FirstOrDefault();
 		}
 
+        /// <summary>
+        /// Loads Inventory by the id parameter
+        /// </summary>
+        /// <param name="inventoryId">Primary Key of Inventory table</param>
+        /// <returns>Inventory entity</returns>
+        public static IEnumerable<Inventory> LoadAllOnInventoryId(int inventoryId)
+        {
+            SearchInventory search
+                = new SearchInventory
+                {
+                    InventoryId = inventoryId
+                };
+            return Search(search);
+        }
+
 		/// <summary>
 		/// Save Inventory Entity
 		/// </summary>
