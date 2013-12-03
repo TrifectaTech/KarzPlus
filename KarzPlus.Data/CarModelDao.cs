@@ -37,9 +37,12 @@ namespace KarzPlus.Data
 						new SqlParameter("@ModelId", item.ModelId),
                         new SqlParameter("@MakeId", item.MakeId),
                         new SqlParameter("@Name", item.Name),
-                        new SqlParameter("@CarImage", item.CarImage),
                         new SqlParameter("@Deleted", item.Deleted)
 					};
+            if (item.CarImage != null)
+            {
+                parameters.Add(new SqlParameter("@CarImage", item.CarImage));
+            }
 
             DataSet set = DataManager.ExecuteProcedure(KarzPlusConnectionString, "PKP_GetCarModel", parameters);
             IEnumerable<DataRow> dataRows = set.GetRowsFromDataSet();

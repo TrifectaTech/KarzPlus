@@ -44,7 +44,6 @@ namespace KarzPlus.Data
                         new SqlParameter("@InventoryDeleted", item.InventoryDeleted),
 						new SqlParameter("@makeid", item.MakeId),
                         new SqlParameter("@ModelName", item.ModelName),
-                        new SqlParameter("@CarImage", item.CarImage),
                         new SqlParameter("@ModelDeleted", item.ModelDeleted),
 						new SqlParameter("@MakeName", item.MakeName),
                         new SqlParameter("@MakeDeleted", item.MakeDeleted),
@@ -56,6 +55,11 @@ namespace KarzPlus.Data
                         new SqlParameter("@Zip", item.Zip),
                         new SqlParameter("@LocationDeleted", item.LocationDeleted)
 					};
+
+            if( item.CarImage != null)
+            {
+                parameters.Add(new SqlParameter("@CarImage", item.CarImage));
+            }
 
             DataSet set = DataManager.ExecuteProcedure(KarzPlusConnectionString, "PKP_GetVKP_CarInventory", parameters);
             IEnumerable<DataRow> dataRows = set.GetRowsFromDataSet();

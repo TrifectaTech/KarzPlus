@@ -124,6 +124,9 @@ namespace KarzPlus.Entities
         /// </summary>
         public bool? LocationDeleted { get; set; }
 
+        public string FullAddress { get { return string.Format("Location Name- {0} Address: {1} {2}, {3}, {4}", LocationName ,Address, City, State, Zip, LocationId); } }
+
+
         /// <summary>
         /// Initializes a new instance of the CarInventoryView class.
         /// </summary>
