@@ -8,9 +8,9 @@
 	<br />
 	<telerik:RadAjaxLoadingPanel runat="server" ID="lrapLocation"/>
 	<telerik:RadAjaxPanel runat="server" ID="rapLocation" LoadingPanelID="lrapLocation">
-		<telerik:RadGrid runat="server" ID="grdLocation" OnNeedDataSource="grdLocation_NeedDataSource"
-			OnItemDataBound="grdLocation_ItemDataBound" OnInsertCommand="grdLocation_InsertCommand"
-			OnUpdateCommand="grdLocation_UpdateCommand" OnDeleteCommand="grdLocation_DeleteCommand">
+		<telerik:RadGrid runat="server" ID="grdInventory" OnNeedDataSource="grdInventory_NeedDataSource"
+			OnItemDataBound="grdInventory_ItemDataBound" OnInsertCommand="grdInventory_InsertCommand"
+			OnUpdateCommand="grdInventory_UpdateCommand" OnDeleteCommand="grdInventory_DeleteCommand">
 			<MasterTableView Name="Location" DataKeyNames="LocationId" AutoGenerateColumns="false"
 				AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True">
 				<Columns>

@@ -31,12 +31,12 @@ namespace KarzPlus.Admin {
         protected global::Telerik.Web.UI.RadAjaxPanel rapLocation;
         
         /// <summary>
-        /// grdLocation control.
+        /// grdInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid grdLocation;
+        protected global::Telerik.Web.UI.RadGrid grdInventory;
     }
 }
