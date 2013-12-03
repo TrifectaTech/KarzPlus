@@ -36,6 +36,13 @@
             </td>
         </tr>
     </table>
+        <table>
+            <tr>
+                <td>
+                    <asp:Label ID="lblMessage" ForeColor="Red" Visible="false" Text="Please select a criteria to search on." runat="server"></asp:Label>
+                </td>
+            </tr>
+        </table>
     <br />
     <table style="align-content:center">
         <tr>
@@ -57,24 +64,19 @@
                         OnDetailTableDataBind="grdresults_DetailTableDataBind">
                     <MasterTableView Name="CarDisplay" DataKeyNames="InventoryId, MakeId, ModelId">
                         <Columns>
-                            <telerik:GridBoundColumn DataField="MakeName" HeaderText="MakeName" UniqueName="MakeName" />
-                            <telerik:GridBoundColumn DataField="ModelName" HeaderText="ModelName" UniqueName="ModelName" />
-                            <telerik:GridBinaryImageColumn DataField="CarImage" HeaderText="CarImage" UniqueName="CarImage" />
-                            <telerik:GridBoundColumn DataField="Color" HeaderText="Color" UniqueName="Color" />
-                            <telerik:GridBoundColumn DataField="CarYear" HeaderText="CarYear" UniqueName="CarYear" />
-                            <telerik:GridBoundColumn DataField="Price" HeaderText="Price" UniqueName="Price" />
-                            <telerik:GridBoundColumn DataField="Quantity" HeaderText="Quantity" UniqueName="Quantity" />
-                            <telerik:GridBoundColumn DataField="FullAddress" HeaderText="FullAddress" UniqueName="FullAddress" />
+                            <telerik:GridBoundColumn DataField="MakeName" HeaderText="Make" UniqueName="MakeName" />
+                            <telerik:GridBoundColumn DataField="ModelName" HeaderText="Model" UniqueName="ModelName" />
+                            <telerik:GridBinaryImageColumn DataField="CarImage" HeaderText="Image" UniqueName="CarImage" />
+                            <telerik:GridBoundColumn DataField="Quantity" HeaderText="Inventory" UniqueName="Quantity" />
+                            <telerik:GridBoundColumn DataField="FullAddress" HeaderText="Location" UniqueName="FullAddress" />
                         </Columns>
                         <DetailTables>
-                            <telerik:GridTableView Name="ItemDetails">
+                            <telerik:GridTableView Name="ItemDetails" DataKeyNames="InventoryId">
                         <Columns>
-                            <telerik:GridBoundColumn DataField="" HeaderText="" UniqueName="" />
-                            <telerik:GridBoundColumn DataField="" HeaderText="" UniqueName="" />
-                            <telerik:GridBoundColumn DataField="" HeaderText="" UniqueName="" />
-                            <telerik:GridBoundColumn DataField="" HeaderText="" UniqueName="" />
-                            <telerik:GridBoundColumn DataField="" HeaderText="" UniqueName="" />
-                            <telerik:GridBoundColumn DataField="" HeaderText="" UniqueName="" />
+                            <telerik:GridButtonColumn ButtonType="PushButton" Text="Place Rental Order" />
+                            <telerik:GridBoundColumn DataField="Year" HeaderText="Car Year" UniqueName="Year" />
+                            <telerik:GridBoundColumn DataField="Color" HeaderText="Color" UniqueName="Color" />
+                            <telerik:GridNumericColumn DataField="Price" HeaderText="Price" UniqueName="Price" NumericType="Currency"/>
                         </Columns>
                             </telerik:GridTableView>
                         </DetailTables>

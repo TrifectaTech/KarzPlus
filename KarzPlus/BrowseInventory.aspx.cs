@@ -50,7 +50,8 @@ namespace KarzPlus
                 {
                     state = null;
                 }
-                else{
+                else
+                {
                     state = ddlLocation.SelectedValue;
                 }
                 return state;
@@ -64,10 +65,19 @@ namespace KarzPlus
                 LoadDropDowns();
             }
         }
-          
+
         protected void btnSearch_OnClick(object sender, EventArgs e)
         {
-            grdresults.Rebind();
+            lblMessage.Visible = false;
+
+            if (SelectedMakeId.HasValue || !SelectedState.IsNullOrWhiteSpace())
+            {
+                grdresults.Rebind();
+            }
+            else
+            {
+                lblMessage.Visible = true;
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -78,6 +88,7 @@ namespace KarzPlus
 
             ddlCarModel.Items.Clear();
             LoadDropDowns();
+            lblMessage.Visible = false;
             grdresults.Rebind();
         }
 
@@ -98,7 +109,15 @@ namespace KarzPlus
 
         protected void grdresults_DetailTableDataBind(object sender, GridDetailTableDataBindEventArgs e)
         {
-
+            if (e.DetailTableView.Name.SafeEquals("ItemDetails"))
+            {
+                if (!User.Identity.IsAuthenticated)
+                {
+                    e.DetailTableView.Columns[0].Visible = false;
+                }
+                int inventoryId = (int)e.DetailTableView.ParentItem.GetDataKeyValue("InventoryId");
+                e.DetailTableView.DataSource = InventoryManager.LoadAllOnInventoryId(inventoryId).ToList();
+            }
         }
 
         private void LoadDropDowns()
@@ -120,7 +139,7 @@ namespace KarzPlus
         private void LoadCarModelsOnMake()
         {
             int makeId;
-            if(int.TryParse(ddlCarMake.SelectedValue, out makeId) && makeId > 0)
+            if (int.TryParse(ddlCarMake.SelectedValue, out makeId) && makeId > 0)
             {
                 ddlCarModel.DataSource = CarModelManager.LoadOnMakeId(makeId).OrderBy(t => t.Name).ToList();
                 ddlCarModel.DataValueField = "ModelId";
@@ -129,9 +148,9 @@ namespace KarzPlus
             }
             ddlCarModel.Items.Insert(0, new RadComboBoxItem("Select One"));
             ddlCarModel.SelectedIndex = 0;
-        }     
+        }
         protected void ddlLocation_Load(object sender, EventArgs e)
-        {   
+        {
             if (ddlLocation.Items.Count == 0)
             {
                 ddlLocation.Items.Add(new RadComboBoxItem("AL")); ddlLocation.Items.Add(new RadComboBoxItem("AK")); ddlLocation.Items.Add(new RadComboBoxItem("AZ")); ddlLocation.Items.Add(new RadComboBoxItem("AR")); ddlLocation.Items.Add(new RadComboBoxItem("CA"));
@@ -161,5 +180,6 @@ namespace KarzPlus
         {
             LoadCarModelsOnMake();
         }
+
     }
 }
