@@ -11,8 +11,9 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
@@ -57,22 +58,24 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a id="A1" runat="server" href="~/BrowseInventory">Browse Inventory</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a id="A1" runat="server" href="~/BrowseInventory.aspx">Browse Inventory</a></li>
+                        <li><a runat="server" href="~/About.aspx">About</a></li>
+                        <li><a runat="server" href="~/Contact.aspx">Contact</a></li>
                     </ul>
                     <asp:LoginView runat="server">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Register">Register</a></li>
-                                <li><a runat="server" href="~/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Register.aspx">Register</a></li>
+                                <li><a runat="server" href="~/Login.aspx">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" href="~/Account/Manage.aspx" title="Manage your account">Hello, <%: Context.User.Identity.Name  %> !</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off"
+                                        LogoutPageUrl="~/Default.aspx"
+                                        OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>

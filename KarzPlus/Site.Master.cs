@@ -14,7 +14,7 @@ namespace KarzPlus
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignOut();
+            Session.Abandon();
         }
     }
 
