@@ -13,6 +13,24 @@ namespace KarzPlus {
     public partial class BrowseInventory {
         
         /// <summary>
+        /// loadingpnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel loadingpnl;
+        
+        /// <summary>
+        /// ajpnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel ajpnl;
+        
+        /// <summary>
         /// RadFormDecorator1 control.
         /// </summary>
         /// <remarks>
@@ -73,7 +91,7 @@ namespace KarzPlus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnSearch;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
         /// btnClear control.
@@ -82,7 +100,7 @@ namespace KarzPlus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnClear;
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
         /// pnlResults control.

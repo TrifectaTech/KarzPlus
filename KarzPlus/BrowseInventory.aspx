@@ -2,8 +2,10 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <telerik:RadAjaxLoadingPanel ID="loadingpnl" runat="server" Skin="MetroTouch" />
+    <telerik:RadAjaxPanel ID="ajpnl" runat="server" LoadingPanelID="loadingpnl">
     <telerik:RadFormDecorator ID="RadFormDecorator1" runat="server" Skin="MetroTouch" DecoratedControls="All" />
-    <asp:Panel ID="pnlSearch" runat="server" HorizontalAlign="Center" GroupingText="Search">
+    <asp:Panel ID="pnlSearch" runat="server" HorizontalAlign="Center" GroupingText="Search" >
     <table >
         <tr>
             <td>
@@ -44,24 +46,24 @@
             </tr>
         </table>
     <br />
-    <table style="align-content:center">
+    <table>
         <tr>
             <td>
-                <telerik:RadButton ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_OnClick"></telerik:RadButton>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_OnClick"></asp:Button>
             </td>
             <td>
-                <telerik:RadButton ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click"></telerik:RadButton>
+                <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" ></asp:Button>
             </td>
         </tr>
     </table>
 </asp:Panel>
     <br />
-<asp:Panel ID="pnlResults" runat="server" GroupingText="Car Inventory">
+<asp:Panel ID="pnlResults" runat="server" GroupingText="Car Inventory" HorizontalAlign="Center">
     <table>
         <tr>
             <td>
                 <telerik:RadGrid ID="grdresults" AutoGenerateColumns="false" OnNeedDataSource="grdresults_NeedDataSource" runat="server"
-                        OnDetailTableDataBind="grdresults_DetailTableDataBind">
+                        OnDetailTableDataBind="grdresults_DetailTableDataBind" Skin="MetroTouch">
                     <MasterTableView Name="CarDisplay" DataKeyNames="InventoryId, MakeId, ModelId">
                         <Columns>
                             <telerik:GridBoundColumn DataField="MakeName" HeaderText="Make" UniqueName="MakeName" />
@@ -86,4 +88,5 @@
         </tr>
     </table>
 </asp:Panel>
+        </telerik:RadAjaxPanel>
 </asp:Content>
