@@ -8,7 +8,10 @@ namespace KarzPlus
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Account/Manage.aspx");
+            }
         }
 
         protected void StepNextButton_OnPreRender(object sender, EventArgs e)
