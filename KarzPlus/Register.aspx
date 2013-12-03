@@ -2,24 +2,12 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 
-    <%-- ReSharper disable Html.IdNotResolved --%>
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-
-            $("#MainContent_cuwUserWizard___CustomNav0_StepNextButtonButton").addClass("btn-lg");
-
-        });
-
-    </script>
-    <%-- ReSharper restore Html.IdNotResolved --%>
-    
     <h2><%: Title %>.</h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
 
-    <asp:Panel runat="server" CssClass="form-horizontal" DefaultButton="MainContent_cuwUserWizard___CustomNav0_StepNextButtonButton">
+    <asp:Panel runat="server" CssClass="form-horizontal">
         <h4>Create a new account.</h4>
         <hr />
         <asp:CreateUserWizard runat="server" ID="cuwUserWizard" 
@@ -87,6 +75,16 @@
                             </table>
                         </h4>
                     </ContentTemplate>
+                    <CustomNavigationTemplate>
+                        <table border="0" cellspacing="5" style="width:100%;height:100%;">
+                            <tr align="right">
+                                <td align="right" colspan="0">
+                                    <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Create User" 
+                                        ValidationGroup="cuwUserWizard" OnPreRender="StepNextButton_OnPreRender" CssClass="btn-lg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </CustomNavigationTemplate>
                 </asp:CreateUserWizardStep>
                 <asp:CompleteWizardStep runat="server">
                     <ContentTemplate>
@@ -101,7 +99,8 @@
                                 <tr>
                                     <td align="right">
                                         <br />
-                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" Text="Continue" ValidationGroup="cuwUserWizard" CssClass="btn-sm" />
+                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" Text="Continue" 
+                                            ValidationGroup="cuwUserWizard" CssClass="btn-sm" OnPreRender="ContinueButton_OnPreRender" />
                                     </td>
                                 </tr>
                             </h4>
