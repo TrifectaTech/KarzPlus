@@ -32,7 +32,7 @@ namespace KarzPlus.Controls
             {
                 if (ViewState["InventoryId"] == null)
                 {
-                    ViewState["InventoryId"] = false;
+                    ViewState["InventoryId"] = 0;
                 }
                 return (int)ViewState["InventoryId"];
             }
