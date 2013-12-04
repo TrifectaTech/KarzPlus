@@ -230,7 +230,7 @@ namespace KarzPlus.Entities.ExtensionMethods
 		/// <param name="dateToValidate" />
 		/// <param name="startDate" />
 		/// <returns>True if date is after specified date, false otherwise</returns>
-		public static bool OnAndAfter(this DateTime dateToValidate, DateTime startDate)
+		public static bool OnOrAfter(this DateTime dateToValidate, DateTime startDate)
 		{
 			return dateToValidate >= startDate;
 		}
@@ -252,7 +252,7 @@ namespace KarzPlus.Entities.ExtensionMethods
 		/// <param name="dateToValidate" />
 		/// <param name="startDate" />
 		/// <returns>True if date is on or before specified date, false otherwise</returns>
-		public static bool OnAndBefore(this DateTime dateToValidate, DateTime startDate)
+		public static bool OnOrBefore(this DateTime dateToValidate, DateTime startDate)
 		{
 			return dateToValidate <= startDate;
 		}
@@ -326,7 +326,7 @@ namespace KarzPlus.Entities.ExtensionMethods
 		/// <returns />
 		public static bool DaysOnAndAfter(this DateTime date, DateTime dateToCompare, int numberOfDays)
 		{
-			return date.AddDays(numberOfDays.NegativeValue()).OnAndAfter(dateToCompare);
+			return date.AddDays(numberOfDays.NegativeValue()).OnOrAfter(dateToCompare);
 		}
 
 		/// <summary>

@@ -70,7 +70,7 @@ namespace KarzPlus.Entities
             LocationId = null;
             Color = null;
             Price = null;
-            Deleted = null;
+            Deleted = false;
         }
 	}
 }

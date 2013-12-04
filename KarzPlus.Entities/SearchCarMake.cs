@@ -46,7 +46,7 @@ namespace KarzPlus.Entities
             MakeId = null;
             Name = null;
             Manufacturer = null;
-            Deleted = null;
+            Deleted = false;
         }
 	}
 }

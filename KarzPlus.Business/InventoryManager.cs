@@ -128,6 +128,12 @@ namespace KarzPlus.Business
 				errorMessage += "ModelId must be valid. ";
 			}
 
+			Location location = LocationManager.Load(item.LocationId);
+			if (location == null)
+			{
+				errorMessage += "LocationId must be valid. ";
+			}
+
 			errorMessage = errorMessage.TrimSafely();
 
 			return errorMessage.IsNullOrWhiteSpace();

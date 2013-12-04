@@ -52,7 +52,7 @@ namespace KarzPlus.Entities
             MakeId = null;
             Name = null;
             CarImage = null;
-            Deleted = null;
+            Deleted = false;
         }
 	}
 }
