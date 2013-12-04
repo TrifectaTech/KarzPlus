@@ -116,7 +116,14 @@ namespace KarzPlus
                     e.DetailTableView.Columns[0].Visible = false;
                 }
                 int inventoryId = (int)e.DetailTableView.ParentItem.GetDataKeyValue("InventoryId");
-                e.DetailTableView.DataSource = InventoryManager.LoadAllOnInventoryId(inventoryId);
+
+                List<Inventory> inventories = new List<Inventory>();
+
+                Inventory inventory = InventoryManager.Load(inventoryId);
+
+                inventories.Add(inventory);
+
+                e.DetailTableView.DataSource = inventories;
             }
         }
 

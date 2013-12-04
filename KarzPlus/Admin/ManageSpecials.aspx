@@ -28,6 +28,7 @@
                             </div>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
+                    <telerik:GridNumericColumn DataField="Price" UniqueName="Price" HeaderText="Special Price" NumericType="Currency"/>
                     <telerik:GridDateTimeColumn DataField="DateStart" HeaderText="Special Start Date" UniqueName="DateStart" DataFormatString="{0:MM/dd/yyyy}" />
                     <telerik:GridDateTimeColumn DataField="DateEnd" HeaderText="Special End Date" UniqueName="DateEnd" DataFormatString="{0:MM/dd/yyyy}" />
                 </Columns>

@@ -103,5 +103,16 @@ namespace KarzPlus.Business
         {            
             SpecialDao.Delete(specialId);            
         }
+
+        /// <summary>
+        /// Loads all specials
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<Special> LoadAll()
+        {
+            SearchSpecial searchSpecial = new SearchSpecial();
+
+            return Search(searchSpecial);
+        }
     }
 }
