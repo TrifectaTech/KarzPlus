@@ -41,7 +41,22 @@ namespace KarzPlus.Controls
 
         public void SaveControl()
         {
+            Location location = new Location();
+            if (EditOption)
+            {
+                location = LocationManager.Load(LocationId);
+            }
 
+            location.Name = txtLocationName.Text;
+            location.Address = txtAddress.Text;
+            location.City = txtCity.Text;
+            location.Zip = txtZip.Text;
+            location.Phone = txtPhone.Text;
+            location.Email = txtEmail.Text;
+            location.State = ddlLocation.SelectedValue;
+
+            string errorMessage;
+            LocationManager.Save(location, out errorMessage);
         }
 
         public void ReloadControl()

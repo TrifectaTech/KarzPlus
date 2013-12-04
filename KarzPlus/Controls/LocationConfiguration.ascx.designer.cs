@@ -22,6 +22,15 @@ namespace KarzPlus.Controls {
         protected global::Telerik.Web.UI.RadTextBox txtLocationName;
         
         /// <summary>
+        /// valLocationname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valLocationname;
+        
+        /// <summary>
         /// txtAddress control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace KarzPlus.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtAddress;
+        
+        /// <summary>
+        /// valAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valAddress;
         
         /// <summary>
         /// txtCity control.
@@ -40,6 +58,15 @@ namespace KarzPlus.Controls {
         protected global::Telerik.Web.UI.RadTextBox txtCity;
         
         /// <summary>
+        /// valCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valCity;
+        
+        /// <summary>
         /// ddlLocation control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace KarzPlus.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadComboBox ddlLocation;
+        
+        /// <summary>
+        /// valLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valLocation;
         
         /// <summary>
         /// txtZip control.
@@ -58,6 +94,15 @@ namespace KarzPlus.Controls {
         protected global::Telerik.Web.UI.RadTextBox txtZip;
         
         /// <summary>
+        /// valZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valZip;
+        
+        /// <summary>
         /// txtPhone control.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,15 @@ namespace KarzPlus.Controls {
         protected global::Telerik.Web.UI.RadTextBox txtPhone;
         
         /// <summary>
+        /// valphone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valphone;
+        
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -74,6 +128,15 @@ namespace KarzPlus.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtEmail;
+        
+        /// <summary>
+        /// valEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valEmail;
         
         /// <summary>
         /// btnSave control.
