@@ -269,6 +269,22 @@ namespace KarzPlus.Entities.ExtensionMethods
 			return DoDatesOverlap(dateToValidate, dateToValidate, startDate, endDate);
 		}
 
+	    public static int GetAmountOfDaysBetweenDates(this DateTime startDate, DateTime endDate)
+		{
+            int counter = 0;
+            if (startDate < endDate)
+            {
+                DateTime start = startDate.Date;
+                DateTime end = endDate.Date;
+                for (DateTime date = start; date <= end; date = date.AddDays(1))
+                {
+                    counter++;
+                }
+            }
+            return counter;
+		}
+       
+
 		/// <summary>
 		/// Check if the 4 dates overlap. This is used for the contract computation EffectiveDate
 		/// </summary>

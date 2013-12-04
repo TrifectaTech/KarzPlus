@@ -66,16 +66,9 @@ namespace KarzPlus.Account
                 price = special.FirstOrDefault(t => DateTime.Now.Date.Between(t.DateStart, t.DateEnd)).Price;
             }
 
+            int amtOfDays = dtStartDate.SelectedDate.Value.GetAmountOfDaysBetweenDates(dtEndDate.SelectedDate.Value);
 
-            int counter = 0;
-            DateTime start = dtStartDate.SelectedDate.Value;
-            DateTime end = dtEndDate.SelectedDate.Value;
-            for (DateTime date = start; date <= end; date = date.AddDays(1))
-            {
-                counter++;
-            }
-
-            txtTotal.Value = (double)(price * counter);
+            txtTotal.Value = (double)(price * amtOfDays);
         }
     }
 }
