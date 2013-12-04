@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageSpecials.aspx.cs" Inherits="KarzPlus.Admin.ManageSpecials" %>
+﻿<%@ Page Title="Manage Specials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageSpecials.aspx.cs" Inherits="KarzPlus.Admin.ManageSpecials" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -12,11 +12,11 @@
             <asp:Label ID="lblTitle" runat="server" /></h2>
 
         <telerik:RadGrid runat="server" ID="grdSpecials" AllowSorting="True" AllowAutomaticDeletes="False" Skin="MetroTouch"
-            AllowAutomaticInserts="False" AllowAutomaticUpdates="False" Width="" AllowMultiRowEdit="False"
+            AllowAutomaticInserts="False" AllowAutomaticUpdates="False" AllowMultiRowEdit="False"
             AutoGenerateColumns="False"
             AllowPaging="True" OnNeedDataSource="grdSpecials_OnNeedDataSource" OnInsertCommand="grdSpecials_OnInsertCommand"
-            OnDeleteCommand="grdSpecials_OnDeleteCommand" OnUpdateCommand="grdSpecials_OnUpdateCommand" OnItemDataBound="grdSpecials_OnItemDataBound">
-            <MasterTableView Name="grdSpecials" DataKeyNames="InventoryId, SpecialId" CommandItemDisplay="Top">
+            OnUpdateCommand="grdSpecials_OnUpdateCommand" OnItemDataBound="grdSpecials_OnItemDataBound">
+            <MasterTableView Name="grdSpecials" DataKeyNames="InventoryId, SpecialId" CommandItemDisplay="Top" NoMasterRecordsText="No payment information">
                 <Columns>
                     <telerik:GridEditCommandColumn EditText="Edit Special" />
                     <telerik:GridTemplateColumn HeaderText="Special Details">
@@ -48,10 +48,11 @@
                                         Special:
                                     </td>
                                     <td>
-                                        <telerik:RadComboBox runat="server" ID="ddlInventory" EnableVirtualScrolling="True" MaxHeight="200px" EmptyMessage="Please select an inventory record"/>
+                                        <telerik:RadComboBox runat="server" ID="ddlInventory" EnableVirtualScrolling="True" MaxHeight="200px" Width="300px" 
+                                            EmptyMessage="Please select an inventory record"/>
                                         
                                         <asp:RequiredFieldValidator runat="server" ID="valInventory" InitialValue="" CssClass="text-danger"  Display="Dynamic"
-                                            ErrorMessage="Special is required" ControlToValidate="ddlInventory"/>
+                                            ErrorMessage="*Special is required" ControlToValidate="ddlInventory"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -62,7 +63,7 @@
                                         <telerik:RadDatePicker runat="server" ID="dtDateStart"/>
                                         
                                         <asp:RequiredFieldValidator runat="server" ID="valDateStart" CssClass="text-danger" Display="Dynamic" 
-                                            ErrorMessage="Date Start is required" ControlToValidate="dtDateStart"/>
+                                            ErrorMessage="*Date Start is required" ControlToValidate="dtDateStart"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -73,7 +74,7 @@
                                         <telerik:RadDatePicker runat="server" ID="dtDateEnd"/>
                                         
                                         <asp:RequiredFieldValidator runat="server" ID="valDateEnd" CssClass="text-danger" Display="Dynamic" 
-                                            ErrorMessage="Date End is required" ControlToValidate="dtDateEnd"/>
+                                            ErrorMessage="*Date End is required" ControlToValidate="dtDateEnd"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -84,7 +85,7 @@
                                         <telerik:RadNumericTextBox runat="server" ID="txtPrice" Type="Currency" MinValue="1" MaxValue="100000"/>
                                         
                                         <asp:RequiredFieldValidator runat="server" ID="valPrice" CssClass="text-danger" Display="Dynamic" 
-                                            ErrorMessage="Price is required" ControlToValidate="dtDateEnd"/>
+                                            ErrorMessage="*Price is required" ControlToValidate="dtDateEnd"/>
                                     </td>
                                 </tr>
                                 </table>
@@ -92,9 +93,9 @@
                                 <tr>
                                     <td>
                                         
-                                        <telerik:RadButton runat="server" ID="btnSave" CommandName="Update" Text="Save"/>
+                                        <telerik:RadButton runat="server" ID="btnSave" CommandName="Update" Text="Save" Width="150px" Height="35px" />
                                         
-                                        <telerik:RadButton runat="server" ID="btnCancel" CommandName="Cancel" Text="Cancel" CausesValidation="False"/>
+                                        <telerik:RadButton runat="server" ID="btnCancel" CommandName="Cancel" Text="Cancel" CausesValidation="False" Width="150px" Height="35px" />
 
                                     </td>
                                 </tr>

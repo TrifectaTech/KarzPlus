@@ -7,45 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KarzPlus.Admin {
+namespace KarzPlus.Controls {
     
     
-    public partial class ManageLocation {
+    public partial class CarMakeConfiguration {
         
         /// <summary>
-        /// lrapLocation control.
+        /// txtMakeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxLoadingPanel lrapLocation;
+        protected global::Telerik.Web.UI.RadTextBox txtMakeName;
         
         /// <summary>
-        /// rapLocation control.
+        /// valmakename control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel rapLocation;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valmakename;
         
         /// <summary>
-        /// lblmessage control.
+        /// txtManufacturer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmessage;
+        protected global::Telerik.Web.UI.RadTextBox txtManufacturer;
         
         /// <summary>
-        /// grdLocation control.
+        /// valMfg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid grdLocation;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valMfg;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

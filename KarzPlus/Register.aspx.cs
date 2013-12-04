@@ -39,7 +39,10 @@ namespace KarzPlus
         {
             string userName = cuwUserWizard.UserName;
 
-            Roles.AddUserToRole(userName, "Member");
+            if (!Roles.IsUserInRole(userName))
+            {
+                Roles.AddUserToRole(userName, "Member");
+            }
         }
     }
 }

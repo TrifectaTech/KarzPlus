@@ -61,6 +61,18 @@ namespace KarzPlus.Business
             return Search(search);
         }
 
+        public static bool IsValidToRemove(int makeId)
+        {
+            SearchCarModel search
+                = new SearchCarModel
+                {
+                    MakeId = makeId,
+                    Deleted = false
+                };
+            return !CarModelManager.Search(search).SafeAny();
+        }
+        
+
         /// <summary>
         /// Save CarMake Entity
         /// </summary>

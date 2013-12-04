@@ -46,6 +46,16 @@ namespace KarzPlus.Business
 			return Search(search).FirstOrDefault();
         }
 
+        public static bool IsValidToRemove(int modelId)
+        {
+			SearchInventory search
+                = new SearchInventory
+					{
+						ModelId = modelId,
+                        Deleted = false
+					};    
+			return !InventoryManager.Search(search).SafeAny();
+        }
         public static IEnumerable<CarModel> LoadOnMakeId(int makeId)
         {
 			SearchCarModel search
