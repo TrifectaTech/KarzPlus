@@ -17,7 +17,7 @@ namespace KarzPlus.Admin
 
 		}
 
-		protected void grdInventory_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+        protected void grdLocation_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
 		{
 			if (!e.IsFromDetailTable)
 			{
@@ -25,7 +25,7 @@ namespace KarzPlus.Admin
 			}
 		}
 
-		protected void grdInventory_ItemDataBound(object sender, GridItemEventArgs e)
+        protected void grdLocation_ItemDataBound(object sender, GridItemEventArgs e)
 		{
 			if (e.Item is GridEditableItem && e.Item.IsInEditMode)
 			{
@@ -33,24 +33,67 @@ namespace KarzPlus.Admin
 				LocationConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as LocationConfiguration;
 				if (userControl != null)
 				{
-					  
+                    if (!(item is GridEditFormInsertItem))
+                    {
+                        int locationId = (int)item.GetDataKeyValue("LocationId");
+                        userControl.LocationId = locationId;
+                        userControl.EditOption = true;
+                    }
+
+                    userControl.ReloadControl();
 				}
 			}
 		}
 
-		protected void grdInventory_InsertCommand(object sender, GridCommandEventArgs e)
+        protected void grdLocation_UpdateCommand(object sender, GridCommandEventArgs e)
 		{
-			throw new NotImplementedException();
+            if (e.Item is GridEditableItem && e.Item.IsInEditMode)
+            {
+                GridEditableItem item = e.Item as GridEditableItem;
+                LocationConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as LocationConfiguration;
+                if (userControl != null)
+                {
+                    userControl.SaveControl();
+                }
+            }
 		}
 
-		protected void grdInventory_UpdateCommand(object sender, GridCommandEventArgs e)
+        protected void grdLocation_DeleteCommand(object sender, GridCommandEventArgs e)
 		{
-			throw new NotImplementedException();
+            GridDataItem item = (e.Item as GridDataItem);
+            int locationId = (int)item.GetDataKeyValue("LocationId");
+            lblmessage.Text = string.Empty;
+            if (InventoryManager.IsValidToRemove(locationId))
+            {
+                LocationManager.Delete(locationId);
+            }
+            else
+            {
+                lblmessage.Text = "There is active inventory items. Please remove inventory before removing Location.";
+            }
+            
 		}
 
-		protected void grdInventory_DeleteCommand(object sender, GridCommandEventArgs e)
-		{
-			throw new NotImplementedException();
-		}
+
+        protected void grdInventory_UpdateCommand(object sender, GridCommandEventArgs e)
+        {
+            if (e.Item is GridEditableItem && e.Item.IsInEditMode)
+            {
+                GridEditableItem item = e.Item as GridEditableItem;
+                KarzPlus.Controls.InventoryConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as KarzPlus.Controls.InventoryConfiguration;
+                if (userControl != null)
+                {
+                    userControl.SaveControl();
+                }
+            }
+        }
+
+        protected void grdInventory_DeleteCommand(object sender, GridCommandEventArgs e)
+        {
+            GridDataItem item = (e.Item as GridDataItem);
+            int id = (int)item.GetDataKeyValue("InventoryId");
+            InventoryManager.Delete(id);
+        }
+
 	}
 }

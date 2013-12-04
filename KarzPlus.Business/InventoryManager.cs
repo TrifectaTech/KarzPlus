@@ -46,6 +46,28 @@ namespace KarzPlus.Business
 			return Search(search).FirstOrDefault();
 		}
 
+        public static IEnumerable<Inventory> LoadOnLocationId(int locationId)
+        {
+            SearchInventory search
+                = new SearchInventory
+                {
+                    LocationId = locationId,
+                    Deleted=false
+                };
+            return Search(search);
+        }
+
+        public static bool IsValidToRemove(int locationId)
+        {
+            SearchInventory search
+                = new SearchInventory
+                {
+                    LocationId = locationId,
+                    Deleted = false
+                };
+            return !Search(search).SafeAny();
+        }
+
         /// <summary>
         /// Loads Inventory by the id parameter
         /// </summary>

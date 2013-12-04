@@ -8,14 +8,26 @@
 	<br />
 	<telerik:RadAjaxLoadingPanel runat="server" ID="lrapLocation"/>
 	<telerik:RadAjaxPanel runat="server" ID="rapLocation" LoadingPanelID="lrapLocation">
-		<telerik:RadGrid runat="server" ID="grdInventory" OnNeedDataSource="grdInventory_NeedDataSource"
-			OnItemDataBound="grdInventory_ItemDataBound" OnInsertCommand="grdInventory_InsertCommand"
-			OnUpdateCommand="grdInventory_UpdateCommand" OnDeleteCommand="grdInventory_DeleteCommand">
+        <asp:Label ID="lblmessage" runat="server" ForeColor="Red"></asp:Label>
+        <br />
+
+		<telerik:RadGrid runat="server" ID="grdInventory" OnNeedDataSource="grdLocation_NeedDataSource"
+			OnItemDataBound="grdLocation_ItemDataBound" Skin="MetroTouch"
+			OnUpdateCommand="grdLocation_UpdateCommand" OnDeleteCommand="grdLocation_DeleteCommand">
 			<MasterTableView Name="Location" DataKeyNames="LocationId" AutoGenerateColumns="false"
-				AllowAutomaticDeletes="True" AllowAutomaticInserts="True" AllowAutomaticUpdates="True">
+                CommandItemDisplay="Top" CommandItemSettings-AddNewRecordText="Add Location">
 				<Columns>
-					
+                    <telerik:GridEditCommandColumn EditText="Edit" ></telerik:GridEditCommandColumn>
+                    <telerik:GridButtonColumn CommandName="Delete" Text="Delete" ButtonType="LinkButton" />
+					<telerik:GridBoundColumn HeaderText="Name" UniqueName="Name" DataField="Name" />
+                    <telerik:GridBoundColumn HeaderText="Address" UniqueName="Address" DataField="Address" />
+                    <telerik:GridBoundColumn HeaderText="City" UniqueName="City" DataField="City" />
+                    <telerik:GridBoundColumn HeaderText="State" UniqueName="State" DataField="State" />
+                    <telerik:GridBoundColumn HeaderText="Zip" UniqueName="Zip" DataField="Zip" />
+                    <telerik:GridBoundColumn HeaderText="Phone" UniqueName="Phone" DataField="Phone" />
+                    <telerik:GridBoundColumn HeaderText="Email" UniqueName="Email" DataField="Email" />
 				</Columns>
+                <EditFormSettings EditFormType="WebUserControl" UserControlName="~/Controls/LocationConfiguration.ascx"></EditFormSettings> 
 			</MasterTableView>
 		</telerik:RadGrid>
 	</telerik:RadAjaxPanel>
