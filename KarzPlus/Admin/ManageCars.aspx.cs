@@ -9,10 +9,11 @@ using KarzPlus.Entities;
 using KarzPlus.Entities.ExtensionMethods;
 using Telerik.Web.UI;
 using KarzPlus.Controls;
+using KarzPlus.Base;
 
 namespace KarzPlus.Admin
 {
-    public partial class ManageCars : System.Web.UI.Page
+    public partial class ManageCars : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

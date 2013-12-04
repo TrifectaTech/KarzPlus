@@ -3,10 +3,11 @@ using System.Web.UI;
 using Telerik.Web.UI;
 using KarzPlus.Entities;
 using KarzPlus.Business;
+using KarzPlus.Base;
 
 namespace KarzPlus.Controls
 {
-	public partial class LocationConfiguration : UserControl
+	public partial class LocationConfiguration : BaseControl
 	{
         public bool EditOption
         {

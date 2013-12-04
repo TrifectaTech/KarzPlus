@@ -7,10 +7,11 @@ using System.Web.UI.WebControls;
 using KarzPlus.Entities;
 using KarzPlus.Business;
 using KarzPlus.Entities.ExtensionMethods;
+using KarzPlus.Base;
 
 namespace KarzPlus.Controls
 {
-    public partial class CarMakeConfiguration : System.Web.UI.UserControl
+    public partial class CarMakeConfiguration : BaseControl
     {
         public bool EditOption
         {

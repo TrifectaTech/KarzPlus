@@ -7,10 +7,11 @@ using System.Web.UI.WebControls;
 using KarzPlus.Business;
 using KarzPlus.Entities;
 using Telerik.Web.UI;
+using KarzPlus.Base;
 
 namespace KarzPlus.Admin
 {
-    public partial class ManageInventory : Page
+    public partial class ManageInventory : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

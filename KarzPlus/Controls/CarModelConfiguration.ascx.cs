@@ -10,10 +10,11 @@ using KarzPlus.Entities.ExtensionMethods;
 using Telerik.Web.UI;
 using System.IO;
 using System.Drawing;
+using KarzPlus.Base;
 
 namespace KarzPlus.Controls
 {
-    public partial class CarModelConfiguration : System.Web.UI.UserControl
+    public partial class CarModelConfiguration : BaseControl
     {
         public bool EditOption
         {

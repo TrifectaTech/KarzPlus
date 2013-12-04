@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Account\RentalOrder.aspx" />
     <Content Include="Admin\ManageCars.aspx" />
     <Content Include="Admin\ManageInventory.aspx" />
     <Content Include="Admin\ManageLocation.aspx" />
@@ -104,6 +105,7 @@
     <Content Include="Controls\CarModelConfiguration.ascx" />
     <Content Include="Controls\InventoryConfiguration.ascx" />
     <Content Include="Controls\LocationConfiguration.ascx" />
+    <Content Include="Controls\TransactionConfiguration.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Register.aspx" />
@@ -184,6 +186,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\RentalOrder.aspx.cs">
+      <DependentUpon>RentalOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RentalOrder.aspx.designer.cs">
+      <DependentUpon>RentalOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManageCars.aspx.cs">
       <DependentUpon>ManageCars.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -204,6 +213,9 @@
     </Compile>
     <Compile Include="Admin\ManageSpecials.aspx.designer.cs">
       <DependentUpon>ManageSpecials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Base\BaseControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -231,6 +243,7 @@
     </Compile>
     <Compile Include="Controls\InventoryConfiguration.ascx.cs">
       <DependentUpon>InventoryConfiguration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\InventoryConfiguration.ascx.designer.cs">
       <DependentUpon>InventoryConfiguration.ascx</DependentUpon>
@@ -241,6 +254,13 @@
     </Compile>
     <Compile Include="Controls\LocationConfiguration.ascx.designer.cs">
       <DependentUpon>LocationConfiguration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TransactionConfiguration.ascx.cs">
+      <DependentUpon>TransactionConfiguration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TransactionConfiguration.ascx.designer.cs">
+      <DependentUpon>TransactionConfiguration.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -367,7 +387,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 using KarzPlus.Business;
 using KarzPlus.Controls;
 using Telerik.Web.UI;
-
+using KarzPlus.Base;
 namespace KarzPlus.Admin
 {
-	public partial class ManageLocation : Page
+    public partial class ManageLocation : BasePage
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

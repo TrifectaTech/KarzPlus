@@ -8,10 +8,11 @@ using KarzPlus.Business;
 using KarzPlus.Entities;
 using KarzPlus.Entities.ExtensionMethods;
 using Telerik.Web.UI;
+using KarzPlus.Base;
 
 namespace KarzPlus.Controls
 {
-    public partial class InventoryConfiguration : UserControl
+    public partial class InventoryConfiguration : BaseControl
     {
         public bool EditOption
         {

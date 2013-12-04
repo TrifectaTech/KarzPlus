@@ -8,10 +8,11 @@ using KarzPlus.Business;
 using KarzPlus.Entities;
 using KarzPlus.Entities.ExtensionMethods;
 using Telerik.Web.UI;
+using KarzPlus.Base;
 
 namespace KarzPlus
 {
-    public partial class BrowseInventory : System.Web.UI.Page
+    public partial class BrowseInventory : BasePage
     {
         private int? SelectedModelId
         {

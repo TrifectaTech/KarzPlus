@@ -10,6 +10,7 @@
 
 using System;
 using KarzPlus.Entities.Common;
+using KarzPlus.Entities.ExtensionMethods;
 
 namespace KarzPlus.Entities
 {
@@ -217,6 +218,11 @@ namespace KarzPlus.Entities
                     IsItemModified = true;
                 }
             }
+        }
+
+        public string PaymentInfoDisplay()
+        {
+            return string.Format("PaymentInfoId: {0}, CCNumber-ExpDate: {1}-{2} ; BillingAddress: {3}, Zip: {4};", PaymentInfoId,CreditCardNumber.Suffix(4),ExpirationDate.Date, BillingAddress, BillingZip);
         }
 
         /// <summary>
