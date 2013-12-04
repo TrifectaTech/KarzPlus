@@ -20,6 +20,7 @@
             Car Image:
         </td>
         <td>
+            <telerik:RadAsyncUpload ID="RadAsyncUpload1" runat="server" MaxFileInputsCount="1" TemporaryFileExpiration="1"></telerik:RadAsyncUpload>
         </td>
     </tr>
 </table>

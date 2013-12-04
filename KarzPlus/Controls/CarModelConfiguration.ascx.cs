@@ -8,6 +8,8 @@ using KarzPlus.Entities;
 using KarzPlus.Business;
 using KarzPlus.Entities.ExtensionMethods;
 using Telerik.Web.UI;
+using System.IO;
+using System.Drawing;
 
 namespace KarzPlus.Controls
 {
@@ -50,7 +52,7 @@ namespace KarzPlus.Controls
                 return (int)ViewState["MakeId"];
             }
             set { ViewState["MakeId"] = value; }
-        }  
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,17 +65,69 @@ namespace KarzPlus.Controls
 
             CarModel modelToSave = new CarModel();
             modelToSave.MakeId = MakeId;
-                        if (EditOption)
+            modelToSave.CarImage = null;
+
+            if (EditOption)
             {
                 modelToSave = CarModelManager.Load(ModelId);
             }
 
             modelToSave.Name = txtModelName.Text;
-            modelToSave.CarImage = new byte[1];
+            if (RadAsyncUpload1.UploadedFiles.Count > 0)
+            {
+                UploadedFile file = RadAsyncUpload1.UploadedFiles[0];
+
+                System.Drawing.Image.GetThumbnailImageAbort thumbnailImageAbortDelegate = new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback);
+
+                using (Bitmap originalImage = new Bitmap(file.InputStream))
+                {
+                    decimal w1, h1, width2;
+                    int expectedWidth = 250;
+
+                    w1 = originalImage.Width;
+                    h1 = originalImage.Height;
+                    width2 = Calculations(w1, h1, expectedWidth);
+
+                    int height = Convert.ToInt32(width2);
+                    using (System.Drawing.Image thumbnail = originalImage.GetThumbnailImage(expectedWidth, height, thumbnailImageAbortDelegate, IntPtr.Zero))
+                    {
+                        ImageConverter converter = new ImageConverter();
+                        byte[] attachedBytes = (byte[])converter.ConvertTo(thumbnail, typeof(byte[]));
+                        modelToSave.CarImage = attachedBytes;
+                    }
+                }   
+            }
+
             string errorMessage;
             valid = CarModelManager.Save(modelToSave, out errorMessage);
             return valid;
         }
+
+        private bool ThumbnailCallback()
+        {
+            return false;
+        }
+
+        private decimal Calculations(decimal w1, decimal h1, decimal expectedWidth)
+        {
+            decimal height = 0;
+            decimal ratio = 0;
+            if (expectedWidth < w1)
+            {
+                ratio = w1 / expectedWidth;
+                height = h1 / ratio;
+                return height;
+            }
+
+            if (w1 < expectedWidth)
+            {
+                ratio = expectedWidth / w1;
+                height = h1 * ratio;
+                return height;
+            }
+
+            return height;
+        }   
 
         public void ReloadControl()
         {
@@ -90,6 +144,6 @@ namespace KarzPlus.Controls
             txtModelName.Text = carModel.Name;
 
         }
-       
+
     }
 }

@@ -13,6 +13,15 @@ namespace KarzPlus {
     public partial class BrowseInventory {
         
         /// <summary>
+        /// pnlBuffer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlBuffer;
+        
+        /// <summary>
         /// loadingpnl control.
         /// </summary>
         /// <remarks>

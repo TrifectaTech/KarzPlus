@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="Manage Specials" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageSpecials.aspx.cs" Inherits="KarzPlus.Admin.ManageSpecials" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <script type="text/javascript">
+   
+    </script>
 
     <telerik:RadFormDecorator runat="server" ID="decorator" DecoratedControls="Default" Skin="MetroTouch" />
 
@@ -48,7 +52,7 @@
                                         Special:
                                     </td>
                                     <td>
-                                        <telerik:RadComboBox runat="server" ID="ddlInventory" EnableVirtualScrolling="True" MaxHeight="200px" Width="300px" 
+                                        <telerik:RadComboBox runat="server" ID="ddlInventory" EnableVirtualScrolling="True" MaxHeight="200px" Width="600px" AllowCustomText="True" MarkFirstMatch="True" 
                                             EmptyMessage="Please select an inventory record"/>
                                         
                                         <asp:RequiredFieldValidator runat="server" ID="valInventory" InitialValue="" CssClass="text-danger"  Display="Dynamic"
