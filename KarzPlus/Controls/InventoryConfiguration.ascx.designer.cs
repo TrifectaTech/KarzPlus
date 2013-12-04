@@ -40,6 +40,15 @@ namespace KarzPlus.Controls {
         protected global::Telerik.Web.UI.RadComboBox ddlCarModel;
         
         /// <summary>
+        /// valmodel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valmodel;
+        
+        /// <summary>
         /// txtyear control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace KarzPlus.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadNumericTextBox txtyear;
+        
+        /// <summary>
+        /// valyear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valyear;
         
         /// <summary>
         /// txtqty control.
@@ -58,6 +76,15 @@ namespace KarzPlus.Controls {
         protected global::Telerik.Web.UI.RadNumericTextBox txtqty;
         
         /// <summary>
+        /// valtxtqty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtqty;
+        
+        /// <summary>
         /// txtColor control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace KarzPlus.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtColor;
+        
+        /// <summary>
+        /// valcolor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valcolor;
         
         /// <summary>
         /// txtprice control.
@@ -76,6 +112,15 @@ namespace KarzPlus.Controls {
         protected global::Telerik.Web.UI.RadNumericTextBox txtprice;
         
         /// <summary>
+        /// valPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPrice;
+        
+        /// <summary>
         /// ddlLocation control.
         /// </summary>
         /// <remarks>
@@ -83,6 +128,15 @@ namespace KarzPlus.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadComboBox ddlLocation;
+        
+        /// <summary>
+        /// valLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valLocation;
         
         /// <summary>
         /// btnSave control.
