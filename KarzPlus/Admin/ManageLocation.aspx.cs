@@ -21,7 +21,7 @@ namespace KarzPlus.Admin
 		{
 			if (!e.IsFromDetailTable)
 			{
-				grdInventory.DataSource = LocationManager.LoadAll().ToList();
+                grdLocation.DataSource = LocationManager.LoadAll().ToList();
 			}
 		}
 

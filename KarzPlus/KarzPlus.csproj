@@ -100,6 +100,8 @@
     <Content Include="Admin\ManageInventory.aspx" />
     <Content Include="Admin\ManageLocation.aspx" />
     <Content Include="Admin\ManageSpecials.aspx" />
+    <Content Include="Controls\CarMakeConfiguration.ascx" />
+    <Content Include="Controls\CarModelConfiguration.ascx" />
     <Content Include="Controls\InventoryConfiguration.ascx" />
     <Content Include="Controls\LocationConfiguration.ascx" />
     <Content Include="Login.aspx" />
@@ -212,6 +214,20 @@
     </Compile>
     <Compile Include="Admin\ManageLocation.aspx.designer.cs">
       <DependentUpon>ManageLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CarMakeConfiguration.ascx.cs">
+      <DependentUpon>CarMakeConfiguration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CarMakeConfiguration.ascx.designer.cs">
+      <DependentUpon>CarMakeConfiguration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CarModelConfiguration.ascx.cs">
+      <DependentUpon>CarModelConfiguration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CarModelConfiguration.ascx.designer.cs">
+      <DependentUpon>CarModelConfiguration.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\InventoryConfiguration.ascx.cs">
       <DependentUpon>InventoryConfiguration.ascx</DependentUpon>
@@ -351,7 +367,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
