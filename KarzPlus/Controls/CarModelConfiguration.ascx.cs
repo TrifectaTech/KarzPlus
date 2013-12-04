@@ -37,7 +37,20 @@ namespace KarzPlus.Controls
                 return (int)ViewState["ModelId"];
             }
             set { ViewState["ModelId"] = value; }
-        }   
+        }
+
+        public int MakeId
+        {
+            get
+            {
+                if (ViewState["MakeId"] == null)
+                {
+                    ViewState["MakeId"] = 0;
+                }
+                return (int)ViewState["MakeId"];
+            }
+            set { ViewState["MakeId"] = value; }
+        }  
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,20 +60,16 @@ namespace KarzPlus.Controls
         public bool SaveControl()
         {
             bool valid = false;
+
             CarModel modelToSave = new CarModel();
-            if (EditOption)
+            modelToSave.MakeId = MakeId;
+                        if (EditOption)
             {
                 modelToSave = CarModelManager.Load(ModelId);
             }
 
             modelToSave.Name = txtModelName.Text;
-
-            int makeId = 0;
-            int.TryParse(ddlCarMake.SelectedValue, out makeId);
-            modelToSave.MakeId = makeId;
-            
-            //modelToSave.CarImage =;
-
+            modelToSave.CarImage = new byte[1];
             string errorMessage;
             valid = CarModelManager.Save(modelToSave, out errorMessage);
             return valid;
@@ -68,7 +77,6 @@ namespace KarzPlus.Controls
 
         public void ReloadControl()
         {
-            LoadCarMakes();
             if (EditOption)
             {
                 LoadOnModelId(ModelId);
@@ -81,17 +89,7 @@ namespace KarzPlus.Controls
 
             txtModelName.Text = carModel.Name;
 
-            ddlCarMake.SelectedValue = carModel.MakeId.ToString();
         }
-
-        private void LoadCarMakes()
-        {
-            ddlCarMake.DataSource = CarMakeManager.LoadAll().OrderBy(t => t.Name).ToList();
-            ddlCarMake.DataValueField = "MakeId";
-            ddlCarMake.DataTextField = "Name";
-            ddlCarMake.DataBind();
-            ddlCarMake.Items.Insert(0, new RadComboBoxItem("Select One"));
-            ddlCarMake.SelectedIndex = 0;
-        }
+       
     }
 }

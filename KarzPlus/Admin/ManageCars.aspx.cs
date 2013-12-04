@@ -108,6 +108,9 @@ namespace KarzPlus.Admin
                 CarModelConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as CarModelConfiguration;
                 if (userControl != null)
                 {
+                    int makeId = (int)e.Item.OwnerTableView.ParentItem.GetDataKeyValue("MakeId");
+                    userControl.MakeId = makeId;
+
                     if (!(item is GridEditFormInsertItem))
                     {
                         int modelId = (int)item.GetDataKeyValue("ModelId");

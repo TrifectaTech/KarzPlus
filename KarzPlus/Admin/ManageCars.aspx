@@ -15,12 +15,12 @@
                 <EditFormSettings EditFormType="WebUserControl" UserControlName="~/Controls/CarMakeConfiguration.ascx"></EditFormSettings> 
                 <DetailTables>
                     <telerik:GridTableView Name="Models" DataKeyNames="ModelId" AllowSorting="true" AllowFilteringByColumn="true"
-				CommandItemDisplay="Top" CommandItemSettings-AddNewRecordText="Add Car Model">
+				CommandItemDisplay="Top" CommandItemSettings-AddNewRecordText="Add Car Model" AutoGenerateColumns="false">
                         <Columns>
                             <telerik:GridEditCommandColumn EditText="Edit" ></telerik:GridEditCommandColumn>
                             <telerik:GridButtonColumn CommandName="Delete" Text="Delete" ButtonType="LinkButton" />
 					        <telerik:GridBoundColumn HeaderText="Model Name" UniqueName="Name" DataField="Name" />
-                            <telerik:GridBoundColumn HeaderText="Car Image" UniqueName="CarImage" DataField="CarImage" />
+                            <telerik:GridBinaryImageColumn DataField="CarImage" HeaderText="Image" UniqueName="CarImage" />
                         </Columns>
                         <EditFormSettings EditFormType="WebUserControl" UserControlName="~/Controls/CarModelConfiguration.ascx"></EditFormSettings> 
                     </telerik:GridTableView>
