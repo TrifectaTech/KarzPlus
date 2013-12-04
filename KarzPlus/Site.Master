@@ -97,6 +97,15 @@
         <div class="container body-content">
             <br/>
             <br/>
+            
+            <asp:Panel runat="server" ID="pnlErrorMessage" CssClass="container text-danger" Visible="False">
+                <br/>
+                <br/>
+                <asp:Label runat="server" ID="lblErrorMessage"/>
+                <br/>
+                <br/>
+            </asp:Panel>
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

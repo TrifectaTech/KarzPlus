@@ -8,10 +8,54 @@ using System.Web.UI.WebControls;
 namespace KarzPlus
 {
     public partial class SiteMaster : MasterPage
-    {    
+    {
+        public bool ConsumeGlobalErrorMessage
+        {
+            get
+            {
+                if (Session["ConsumeGlobalErrorMessage"] == null)
+                {
+                    Session["ConsumeGlobalErrorMessage"] = false;
+                }
+                return (bool)Session["ConsumeGlobalErrorMessage"];
+            }
+            set
+            {
+                Session["ConsumeGlobalErrorMessage"] = value;
+            }
+        }
+
+        public string GlobalErrorMessage
+        {
+            get
+            {
+                return Session["GlobalErrorMessage"] as string;
+            }
+            set
+            {
+                Session["GlobalErrorMessage"] = value;
+            }
+        }
+
+        public void ShowErrorMessage(string errorMessage)
+        {
+            lblErrorMessage.Text = errorMessage;
+
+            pnlErrorMessage.Visible = true;
+        }
+
+        public void HideErrorMessage()
+        {
+            lblErrorMessage.Text = string.Empty;
+
+            pnlErrorMessage.Visible = false;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             HijackRoles();
+
+            CheckForGlobalErrorMessage();
 
             if (!IsPostBack)
             {
@@ -36,6 +80,18 @@ namespace KarzPlus
             if (btnManageAccount != null)
             {
                 btnManageAccount.Text = string.Format("Hello, {0}!", HttpContext.Current.User.Identity.Name);
+            }
+        }
+
+        private void CheckForGlobalErrorMessage()
+        {
+            HideErrorMessage();
+
+            if (ConsumeGlobalErrorMessage)
+            {
+                ShowErrorMessage(GlobalErrorMessage);
+
+                ConsumeGlobalErrorMessage = false;
             }
         }
 

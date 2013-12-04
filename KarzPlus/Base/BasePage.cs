@@ -32,5 +32,33 @@ namespace KarzPlus.Base
             }
         }
 
+        public bool ConsumeGlobalErrorMessage
+        {
+            get
+            {
+                if (Session["ConsumeGlobalErrorMessage"] == null)
+                {
+                    Session["ConsumeGlobalErrorMessage"] = false;
+                }
+                return (bool) Session["ConsumeGlobalErrorMessage"];
+            }
+            set
+            {
+                Session["ConsumeGlobalErrorMessage"] = value;
+            }
+        }
+
+        public string GlobalErrorMessage
+        {
+            get
+            {
+                return Session["GlobalErrorMessage"] as string;
+            }
+            set
+            {
+                Session["GlobalErrorMessage"] = value;
+            }
+        }
+
     }
 }

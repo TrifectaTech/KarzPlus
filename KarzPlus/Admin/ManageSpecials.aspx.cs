@@ -152,7 +152,7 @@ namespace KarzPlus.Admin
 
                 Location location = LocationManager.Load(inventory.LocationId);
 
-                string formattedString = string.Format("{0} : {1}", model.Name + " " + make.Name, location.FullAddress);
+                string formattedString = string.Format("{0} : {1}", make.Name + " " + model.Name, location.FullAddress);
 
                 box.Items.Add(new RadComboBoxItem(formattedString, inventory.InventoryId.ToString()));
             }
@@ -186,7 +186,7 @@ namespace KarzPlus.Admin
                     {
                         string carDetailsText = string.Format("{0} {1}", make.Name, model.Name);
 
-                        string locationsDetailsText = string.Format("{0} {1}", location.Name, location.FullAddress);
+                        string locationsDetailsText = location.FullAddress;
 
                         lblCarDetails.Text = carDetailsText;
 

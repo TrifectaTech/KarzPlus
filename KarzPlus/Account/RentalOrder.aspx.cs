@@ -32,7 +32,14 @@ namespace KarzPlus.Account
         {
             if (!IsPostBack)
             {
+                if (InventoryId == default(int))
+                {
+                    ConsumeGlobalErrorMessage = true;
 
+                    GlobalErrorMessage = "*Please select a product to rent";
+
+                    Response.Redirect("~/BrowseInventory.aspx");
+                }
             }
         }
 
