@@ -25,3 +25,13 @@
         </td>
     </tr>
 </table>
+    <table>
+        <tr>
+            <td>
+                <asp:Button ID="btnSave" Text="Save" runat="server" CommandName="Update" CausesValidation="true"  />
+            </td>
+            <td>
+                <asp:Button ID="btnCancel" Text="Cancel" runat="server" CausesValidation="false" CommandName="Cancel" />
+            </td>
+        </tr>
+    </table>
