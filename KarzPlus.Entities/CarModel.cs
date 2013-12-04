@@ -140,7 +140,7 @@ namespace KarzPlus.Entities
             ModelId = default(int?);
             MakeId = default(int);
             Name = default(string);
-            CarImage = default(byte[]);
+            CarImage = null;
             Deleted = default(bool);
             IsItemModified = false;
         }
