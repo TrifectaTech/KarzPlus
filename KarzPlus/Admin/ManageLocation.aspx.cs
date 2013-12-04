@@ -53,7 +53,7 @@ namespace KarzPlus.Admin
                 LocationConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as LocationConfiguration;
                 if (userControl != null)
                 {
-                    userControl.SaveControl();
+                    e.Canceled = !userControl.SaveControl();
                 }
             }
 		}

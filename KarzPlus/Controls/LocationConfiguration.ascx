@@ -31,7 +31,7 @@
             </td>
             <td>
                 <telerik:RadComboBox ID="ddlLocation" runat="server" EnableVirtualScrolling="true" MaxHeight="200px" OnLoad="ddlLocation_Load" />
-                <asp:RequiredFieldValidator ID="valLocation" runat="server" ForeColor="Red" ControlToValidate="ddlLocation" InitialValue="0" Text="*" />
+                <asp:RequiredFieldValidator ID="valLocation" runat="server" ForeColor="Red" ControlToValidate="ddlLocation" InitialValue="Select One" Text="*" />
             </td>
     </tr>
     <tr>
@@ -60,7 +60,13 @@
         </td>
     </tr>
 </table>
-
+<table>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblError" ForeColor="Red" />
+        </td>
+    </tr>
+</table>
     <table>
         <tr>
             <td>

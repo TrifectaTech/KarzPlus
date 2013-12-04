@@ -12,7 +12,7 @@
         <br />
 
 		<telerik:RadGrid runat="server" ID="grdInventory" OnNeedDataSource="grdLocation_NeedDataSource"
-			OnItemDataBound="grdLocation_ItemDataBound" Skin="MetroTouch"
+			OnItemDataBound="grdLocation_ItemDataBound" Skin="MetroTouch" AllowSorting="true" AllowFilteringByColumn="true"
 			OnUpdateCommand="grdLocation_UpdateCommand" OnDeleteCommand="grdLocation_DeleteCommand">
 			<MasterTableView Name="Location" DataKeyNames="LocationId" AutoGenerateColumns="false"
                 CommandItemDisplay="Top" CommandItemSettings-AddNewRecordText="Add Location">

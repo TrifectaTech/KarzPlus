@@ -39,8 +39,10 @@ namespace KarzPlus.Controls
 
 		}
 
-        public void SaveControl()
+        public bool SaveControl()
         {
+            bool valid = false;
+            lblError.Text = string.Empty;
             Location location = new Location();
             if (EditOption)
             {
@@ -56,7 +58,9 @@ namespace KarzPlus.Controls
             location.State = ddlLocation.SelectedValue;
 
             string errorMessage;
-            LocationManager.Save(location, out errorMessage);
+            valid = LocationManager.Save(location, out errorMessage);
+            lblError.Text = errorMessage;
+            return valid;
         }
 
         public void ReloadControl()
