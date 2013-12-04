@@ -8,80 +8,130 @@
 // </summary>
 // ---------------------------------
 
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using KarzPlus.Business;
 using KarzPlus.Entities;
+using KarzPlus.Entities.ExtensionMethods;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KarzPlus.Tests
 {
-    /// <summary>
-    ///This is a test class for CarMakeManagerTest and is intended
-    ///to contain all CarMakeManagerTest Unit Tests
-    ///</summary>
-    [TestClass]
-    public class CarMakeManagerTest
-    {
-        /// <summary>
-        ///A test for Load
-        ///</summary>
-        [TestMethod]
-        public void CarMakeLoadTest()
-        {
-			// TODO - Initiate keys
-            const int makeId = 0; 
+	/// <summary>
+	///This is a test class for CarMakeManagerTest and is intended
+	///to contain all CarMakeManagerTest Unit Tests
+	///</summary>
+	[TestClass]
+	public class CarMakeManagerTest
+	{
+		private CarMake CarMakeTestObject { get; set; }
 
-            CarMake entity = CarMakeManager.Load(makeId);
-            Assert.IsNotNull(entity, "CarMake object was null");
-        }
+		[TestInitialize]
+		public void CreateTestObject()
+		{
+			Random rand = new Random();
+			CarMakeTestObject
+				= new CarMake
+				{
+					MakeId = null,
+					Name = string.Format("TestCarMake_{0}", rand.Next(1, 1000)),
+					Manufacturer = "TestCarManufacturer"
+				};
+
+			string errorMessage;
+			CarMakeManager.Save(CarMakeTestObject, out errorMessage);
+		}
+
+		[TestCleanup]
+		public void DestroyTestObject()
+		{
+			if (CarMakeTestObject != null && CarMakeTestObject.MakeId.HasValue)
+			{
+				CarMakeManager.HardDelete(CarMakeTestObject.MakeId.Value);
+			}
+		}
 
 		/// <summary>
-        ///A null test for Load
-        ///</summary>
-        [TestMethod]
-        public void CarMakeLoadNullTest()
-        {
-			
-            List<CarMake> entity = CarMakeManager.Search(null).ToList();
-            Assert.IsFalse(entity.Any(), "CarMake object was null");
-        }
+		///A test for Load
+		///</summary>
+		[TestMethod]
+		public void CarMakeLoadTest()
+		{
+			Assert.IsNotNull(CarMakeTestObject, "Test object was null");
+			Assert.IsNotNull(CarMakeTestObject.MakeId, "Test object was not saved succesffully");
 
+			CarMake entity = CarMakeManager.Load(CarMakeTestObject.MakeId.Value);
+			Assert.IsNotNull(entity, "CarMake object was null");
 
-        /// <summary>
-        ///A test for Save
-        ///</summary>
-        [TestMethod]
-        public void CarMakeSaveTest()
-        {
-			// TODO - Initiate keys
-			const int makeId = 0; 
+			Assert.IsTrue(entity.Name.SafeEquals(CarMakeTestObject.Name), "Name was not as expected");
+			Assert.IsTrue(entity.Manufacturer.SafeEquals(CarMakeTestObject.Manufacturer), "Manufacturer was not as expected");
+		}
 
-            CarMake entity = CarMakeManager.Load(makeId);
-            string errorMessage;
-            string errorMessageExpected = string.Empty;
-            const bool expected = true;
-            bool actual = CarMakeManager.Save(entity, out errorMessage);
-            Assert.AreEqual(errorMessageExpected, errorMessage, "Some errors were found with CarMake object");
-            Assert.AreEqual(expected, actual, "Save wasn't successful");
-        }
+		/// <summary>
+		///A test for Save
+		///</summary>
+		[TestMethod]
+		public void CarMakeSaveTest()
+		{
+			Assert.IsNotNull(CarMakeTestObject, "Test object was null");
+			Assert.IsNotNull(CarMakeTestObject.MakeId, "Test object was not saved succesffully");
 
-        /// <summary>
-        ///A test for Validate
-        ///</summary>
-        [TestMethod]
-        public void CarMakeValidateTest()
-        {
-			// TODO - Initiate keys
-			const int makeId = 0; 
+			CarMake entity = CarMakeManager.Load(CarMakeTestObject.MakeId.Value);
+			Assert.IsNotNull(entity, "CarMake object was null");
 
-            CarMake entity = CarMakeManager.Load(makeId);
-            string errorMessage;
-            string errorMessageExpected = string.Empty;
-            const bool expected = true;
-            bool actual = CarMakeManager.Validate(entity, out errorMessage);
-            Assert.AreEqual(errorMessageExpected, errorMessage, "Some errors were found with CarMake object");
-            Assert.AreEqual(expected, actual, "CarMake object was invalid");
-        }
-    }
+			string newMake = string.Format("Not_{0}", entity.Name);
+
+			entity.Name = newMake;
+
+			string errorMessage;
+			CarMakeManager.Save(entity, out errorMessage);
+
+			Assert.IsTrue(errorMessage.IsNullOrWhiteSpace(), "Error while saving object");
+
+			Assert.IsNotNull(entity.MakeId, "Entity doesn't have an ID");
+
+			CarMake newEntity = CarMakeManager.Load(entity.MakeId.Value);
+
+			Assert.IsNotNull(newEntity, "Could not load new entity");
+
+			Assert.IsTrue(newEntity.Name.SafeEquals(newMake), "Name edit was not persisted to data store");
+		}
+
+		/// <summary>
+		///A test for Validate
+		///</summary>
+		[TestMethod]
+		public void CarMakeValidateTest()
+		{
+			Assert.IsNotNull(CarMakeTestObject, "Test object was null");
+
+			string errorMessage;
+			bool valid = CarMakeManager.Validate(CarMakeTestObject, out errorMessage);
+
+			Assert.IsTrue(valid, "CarMake was not valid when it should have been");
+			Assert.IsTrue(errorMessage.IsNullOrWhiteSpace(), "Errors found when there shouldn't have been any");
+
+			string name = CarMakeTestObject.Name;
+
+			CarMakeTestObject.Name = string.Empty;
+
+			valid = CarMakeManager.Validate(CarMakeTestObject, out errorMessage);
+
+			Assert.IsFalse(valid, "CarMake was valid when it shouldn't have been");
+			Assert.IsTrue(errorMessage.HasValue(), "Errors not found when there should have been any");
+			Assert.IsTrue(errorMessage.Contains("Name is required", StringComparison.InvariantCultureIgnoreCase));
+
+			CarMake newCarMake
+				= new CarMake
+				{
+					Name = name,
+					Manufacturer = name
+				};
+
+			valid = CarMakeManager.Validate(newCarMake, out errorMessage);
+
+			Assert.IsFalse(valid, "CarMake was valid when it shouldn't have been");
+			Assert.IsTrue(errorMessage.HasValue(), "Errors not found when there should have been any");
+			Assert.IsTrue(errorMessage.Contains("Cannot have multiple car makes with the same name", StringComparison.InvariantCultureIgnoreCase));
+		}
+	}
 }
