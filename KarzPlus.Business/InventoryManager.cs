@@ -46,6 +46,17 @@ namespace KarzPlus.Business
 			return Search(search).FirstOrDefault();
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+	    public static IEnumerable<Inventory> LoadAll()
+	    {
+	        SearchInventory inventory = new SearchInventory();
+
+	        return Search(inventory);
+	    }
+
         public static IEnumerable<Inventory> LoadOnLocationId(int locationId)
         {
             SearchInventory search

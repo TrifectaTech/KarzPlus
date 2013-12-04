@@ -34,6 +34,71 @@
                 </Columns>
                 <EditFormSettings EditFormType="Template">
                     <FormTemplate>
+                         <asp:Panel runat="server" ID="pnlErrorMessage" Visible="False">
+                            <p class="text-danger">
+                                <asp:Literal runat="server" ID="ltErrorMessage" />
+                            </p>
+                        </asp:Panel>
+
+                        <fieldset>
+                            <legend>Save A Special</legend>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Special:
+                                    </td>
+                                    <td>
+                                        <telerik:RadComboBox runat="server" ID="ddlInventory" EnableVirtualScrolling="True" MaxHeight="200px" EmptyMessage="Please select an inventory record"/>
+                                        
+                                        <asp:RequiredFieldValidator runat="server" ID="valInventory" InitialValue="" CssClass="text-danger"  Display="Dynamic"
+                                            ErrorMessage="Special is required" ControlToValidate="ddlInventory"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Date Start:
+                                    </td>
+                                    <td>
+                                        <telerik:RadDatePicker runat="server" ID="dtDateStart"/>
+                                        
+                                        <asp:RequiredFieldValidator runat="server" ID="valDateStart" CssClass="text-danger" Display="Dynamic" 
+                                            ErrorMessage="Date Start is required" ControlToValidate="dtDateStart"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Date End:
+                                    </td>
+                                    <td>
+                                        <telerik:RadDatePicker runat="server" ID="dtDateEnd"/>
+                                        
+                                        <asp:RequiredFieldValidator runat="server" ID="valDateEnd" CssClass="text-danger" Display="Dynamic" 
+                                            ErrorMessage="Date End is required" ControlToValidate="dtDateEnd"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Price:
+                                    </td>
+                                    <td>
+                                        <telerik:RadNumericTextBox runat="server" ID="txtPrice" Type="Currency" MinValue="1" MaxValue="100000"/>
+                                        
+                                        <asp:RequiredFieldValidator runat="server" ID="valPrice" CssClass="text-danger" Display="Dynamic" 
+                                            ErrorMessage="Price is required" ControlToValidate="dtDateEnd"/>
+                                    </td>
+                                </tr>
+                                </table>
+                            <table>
+                                <tr>
+                                    <td>
+                                        
+                                        <telerik:RadButton runat="server" ID="btnSave" CommandName="Update" Text="Save"/>
+                                        
+                                        <telerik:RadButton runat="server" ID="btnCancel" CommandName="Cancel" Text="Cancel" CausesValidation="False"/>
+
+                                    </td>
+                                </tr>
+                            </table>
                     </FormTemplate>
                 </EditFormSettings>
             </MasterTableView>

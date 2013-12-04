@@ -44,6 +44,18 @@ namespace KarzPlus.Admin
             throw new NotImplementedException();
         }
 
+        private void LoadDropdownSpecials(RadComboBox box)
+        {
+            box.Items.Clear();
+
+            List<Inventory> allInventories = InventoryManager.LoadAll().ToList();
+
+            foreach (Inventory inventory in allInventories)
+            {
+                
+            }
+        }
+
         protected void grdSpecials_OnItemDataBound(object sender, GridItemEventArgs e)
         {
             if (e.Item is GridDataItem &&
@@ -79,6 +91,17 @@ namespace KarzPlus.Admin
                         lblLocationDetails.Text = locationsDetailsText;
                     }
                 }
+            }
+
+            if (e.Item is GridEditableItem &&
+                e.Item.OwnerTableView.Name.Equals("grdSpecials") &&
+                e.Item.IsInEditMode)
+            {
+                GridEditableItem item = e.Item as GridEditableItem;
+
+                Special dataItem = item.DataItem as Special;
+
+                
             }
         }
     }
