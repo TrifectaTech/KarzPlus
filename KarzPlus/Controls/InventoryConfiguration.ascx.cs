@@ -85,6 +85,7 @@ namespace KarzPlus.Controls
 
             ddlCarMake.SelectedValue = inventoryItem.MakeId.ToString();
             LoadCarModelsOnMake();
+            ddlCarModel.SelectedValue = inventoryItem.ModelId.ToString();
             ddlLocation.SelectedValue = inventoryItem.LocationId.ToString();
 
             txtColor.Text = inventoryItem.Color;
@@ -127,12 +128,12 @@ namespace KarzPlus.Controls
 
         private void LoadDddlLocations()
         {
-            ddlCarMake.DataSource = LocationManager.LoadAll().OrderBy(t => t.Name).ToList();
-            ddlCarMake.DataValueField = "LocationId";
-            ddlCarMake.DataTextField = "FullAddress";
-            ddlCarMake.DataBind();
-            ddlCarMake.Items.Insert(0, new RadComboBoxItem("Select One"));
-            ddlCarMake.SelectedIndex = 0;
+            ddlLocation.DataSource = LocationManager.LoadAll().OrderBy(t => t.Name).ToList();
+            ddlLocation.DataValueField = "LocationId";
+            ddlLocation.DataTextField = "FullAddress";
+            ddlLocation.DataBind();
+            ddlLocation.Items.Insert(0, new RadComboBoxItem("Select One"));
+            ddlLocation.SelectedIndex = 0;
         }
 
         protected void ddlCarMake_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)

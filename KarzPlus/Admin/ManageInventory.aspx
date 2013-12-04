@@ -10,7 +10,7 @@
 	<telerik:RadAjaxLoadingPanel runat="server" ID="lrapLocation"/>
 	<telerik:RadAjaxPanel runat="server" ID="rapLocation" LoadingPanelID="lrapLocation">
 		<telerik:RadGrid runat="server" ID="grdInventory" OnNeedDataSource="grdInventory_NeedDataSource"
-			OnItemDataBound="grdInventory_ItemDataBound" OnInsertCommand="grdInventory_InsertCommand" Skin="MetroTouch"
+			OnItemDataBound="grdInventory_ItemDataBound" Skin="MetroTouch"
 			OnUpdateCommand="grdInventory_UpdateCommand" OnDeleteCommand="grdInventory_DeleteCommand" >
 			<MasterTableView Name="Inventory" DataKeyNames="InventoryId" AutoGenerateColumns="false" AllowSorting="true" AllowFilteringByColumn="true"
 				CommandItemDisplay="Top" CommandItemSettings-AddNewRecordText="Add Inventory">

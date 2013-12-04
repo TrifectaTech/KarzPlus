@@ -38,7 +38,6 @@
             </td>
             <td>
                 <telerik:RadTextBox ID="txtColor" runat="server"></telerik:RadTextBox>
-                <asp:RequiredFieldValidator ID="valcolor" runat="server" ControlToValidate="txtColor" Text="*"></asp:RequiredFieldValidator>
             </td>
             <td>Price:
             </td>
@@ -54,6 +53,16 @@
             </td>
             <td>
                 <telerik:RadComboBox ID="ddlLocation" runat="server" EnableVirtualScrolling="true" MaxHeight="200px" />
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <asp:Button ID="btnSave" Text="Save" runat="server" CommandName="Update" />
+            </td>
+            <td>
+                <asp:Button ID="btnCancel" Text="Cancel" runat="server" CommandName="Cancel" />
             </td>
         </tr>
     </table>

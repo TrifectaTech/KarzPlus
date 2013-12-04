@@ -45,12 +45,17 @@ namespace KarzPlus.Admin
             }
         }
 
-        protected void grdInventory_InsertCommand(object sender, GridCommandEventArgs e)
-        {
-        }
-
         protected void grdInventory_UpdateCommand(object sender, GridCommandEventArgs e)
         {
+            if (e.Item is GridEditableItem && e.Item.IsInEditMode)
+            {
+                GridEditableItem item = e.Item as GridEditableItem;
+                KarzPlus.Controls.InventoryConfiguration userControl = item.FindControl(GridEditFormItem.EditFormUserControlID) as KarzPlus.Controls.InventoryConfiguration;
+                if (userControl != null)
+                {
+                    userControl.SaveControl();
+                }
+            }
         }
 
         protected void grdInventory_DeleteCommand(object sender, GridCommandEventArgs e)
