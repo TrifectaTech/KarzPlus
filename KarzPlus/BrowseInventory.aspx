@@ -2,9 +2,14 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <asp:Panel runat="server" ID="pnlBuffer" Visible="<%# User.Identity.IsAuthenticated %>">
+        <br/>
+    </asp:Panel>
+
     <telerik:RadAjaxLoadingPanel ID="loadingpnl" runat="server" Skin="MetroTouch" />
     <telerik:RadAjaxPanel ID="ajpnl" runat="server" LoadingPanelID="loadingpnl">
-    <telerik:RadFormDecorator ID="RadFormDecorator1" runat="server" Skin="MetroTouch" DecoratedControls="All" />
+    <telerik:RadFormDecorator ID="RadFormDecorator1" runat="server" Skin="MetroTouch" DecoratedControls="Default" />
     <asp:Panel ID="pnlSearch" runat="server" HorizontalAlign="Center" GroupingText="Search" >
     <table >
         <tr>
@@ -62,7 +67,7 @@
     <table>
         <tr>
             <td>
-                <telerik:RadGrid ID="grdresults" AutoGenerateColumns="false" OnNeedDataSource="grdresults_NeedDataSource" runat="server"
+                <telerik:RadGrid ID="grdresults" AutoGenerateColumns="false" OnNeedDataSource="grdresults_NeedDataSource" runat="server" Width="100%"
                         OnDetailTableDataBind="grdresults_DetailTableDataBind" Skin="MetroTouch">
                     <MasterTableView Name="CarDisplay" DataKeyNames="InventoryId, MakeId, ModelId">
                         <Columns>
