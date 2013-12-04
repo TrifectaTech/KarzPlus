@@ -152,7 +152,7 @@ namespace KarzPlus.Admin
 
                 Location location = LocationManager.Load(inventory.LocationId);
 
-                string formattedString = string.Format("{0} at {1}", model.Name + " " + make.Name, location.Name + " " + location.FullAddress);
+                string formattedString = string.Format("{0} : {1}", model.Name + " " + make.Name, location.FullAddress);
 
                 box.Items.Add(new RadComboBoxItem(formattedString, inventory.InventoryId.ToString()));
             }
