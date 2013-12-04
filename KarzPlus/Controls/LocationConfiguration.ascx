@@ -60,7 +60,13 @@
         </td>
     </tr>
 </table>
-
+<table>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblError" ForeColor="Red" />
+        </td>
+    </tr>
+</table>
     <table>
         <tr>
             <td>
