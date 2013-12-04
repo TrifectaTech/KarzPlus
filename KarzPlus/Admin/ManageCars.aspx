@@ -20,7 +20,7 @@
                             <telerik:GridEditCommandColumn EditText="Edit" ></telerik:GridEditCommandColumn>
                             <telerik:GridButtonColumn CommandName="Delete" Text="Delete" ButtonType="LinkButton" />
 					        <telerik:GridBoundColumn HeaderText="Model Name" UniqueName="Name" DataField="Name" />
-                            <telerik:GridBinaryImageColumn DataField="CarImage" HeaderText="Image" UniqueName="CarImage" />
+                            <telerik:GridBinaryImageColumn HeaderText="Car Image" UniqueName="CarImage" DataField="CarImage" />
                         </Columns>
                         <EditFormSettings EditFormType="WebUserControl" UserControlName="~/Controls/CarModelConfiguration.ascx"></EditFormSettings> 
                     </telerik:GridTableView>

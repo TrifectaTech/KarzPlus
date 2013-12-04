@@ -31,6 +31,15 @@ namespace KarzPlus.Controls {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valModelName;
         
         /// <summary>
+        /// RadAsyncUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAsyncUpload RadAsyncUpload1;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
