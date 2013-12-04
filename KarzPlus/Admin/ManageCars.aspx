@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageCars.aspx.cs" Inherits="KarzPlus.Admin.ManageCars" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    	<h1>
+		<asp:Label ID="Label1" runat="server" Text="Manage Car Makes/Models"/>
+	</h1>
+	<br />
+	<br />
     <asp:Label ID="lblmessage" runat="server" ForeColor="Red"></asp:Label>
 		<telerik:RadGrid runat="server" ID="grdCars" OnNeedDataSource="grdCars_NeedDataSource"
 			OnItemDataBound="grdCars_ItemDataBound" Skin="MetroTouch" OnDetailTableDataBind="grdCars_DetailTableDataBind"
