@@ -76,7 +76,7 @@ namespace KarzPlus.Entities
             Zip = null;
 	        Phone = null;
 	        Email = null;
-            Deleted = null;
+            Deleted = false;
         }
 	}
 }

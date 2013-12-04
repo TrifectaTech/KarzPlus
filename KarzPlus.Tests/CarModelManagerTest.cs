@@ -36,7 +36,7 @@ namespace KarzPlus.Tests
 			Random rand = new Random();
 
 			List<CarMake> carMakes = CarMakeManager.LoadAll().ToList();
-			if (carMakes.SafeAny(c => c.MakeId.HasValue))
+			if (carMakes.SafeAny())
 			{
 				carMakeId = carMakes.First().MakeId.GetValueOrDefault();
 			}

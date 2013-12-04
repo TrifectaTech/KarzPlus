@@ -8,6 +8,7 @@
 // </summary>
 // ---------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
@@ -39,12 +40,17 @@ namespace KarzPlus.Business
 		/// <returns>Transaction entity</returns>
 		public static Transaction Load(int transactionId)
 		{
-			SearchTransaction search
-				= new SearchTransaction
-					{
-						TransactionId = transactionId
-					};
-			return Search(search).FirstOrDefault();
+			return Search(new SearchTransaction { TransactionId = transactionId }).FirstOrDefault();
+		}
+
+		/// <summary>
+		/// Loads Transactions by InventoryId
+		/// </summary>
+		/// <param name="inventoryId" />
+		/// <returns>An IEnumerable set of Transaction</returns>
+		public static IEnumerable<Transaction> LoadByInventoryId(int inventoryId)
+		{
+			return Search(new SearchTransaction { InventoryId = inventoryId });
 		}
 
 		/// <summary>
@@ -86,6 +92,23 @@ namespace KarzPlus.Business
 			{
 				errorMessage += "InventoryId must be valid. ";
 			}
+			else
+			{
+				List<Transaction> transactions = LoadByInventoryId(item.InventoryId).Where(t => t.TransactionId != item.TransactionId).ToList();
+				if (transactions.SafeAny(t => DateTimeMethods.DoDatesOverlap(t.RentalDateStart, t.RentalDateEnd, item.RentalDateStart, item.RentalDateEnd)))
+				{
+					errorMessage += "The selected inventory is already booked during all or part of the time requested for this transaction. ";
+				}
+			}
+
+			if (item.CreditCardNumber.IsNullOrWhiteSpace())
+			{
+				errorMessage += "Credit Card Number is required. ";
+			}
+			else if (item.CreditCardNumber.Length != 16)
+			{
+				errorMessage += "Credit Card Number must be valid. ";
+			}
 
 			if (!item.ExpirationDate.IsValidWithSqlDateStandards())
 			{
@@ -105,6 +128,36 @@ namespace KarzPlus.Business
 			if (!item.RentalDateEnd.IsValidWithSqlDateStandards())
 			{
 				errorMessage += "RentalDateEnd must be valid. ";
+			}
+
+			if (item.RentalDateEnd.OnOrBefore(item.RentalDateStart))
+			{
+				errorMessage += "RentalDateEnd must be after RentalDateStart";
+			}
+
+			if (!item.TransactionId.HasValue && item.ExpirationDate.Before(DateTime.Today))
+			{
+				errorMessage += "Credit Card must not be expired. ";
+			}
+
+			if (item.BillingAddress.IsNullOrWhiteSpace())
+			{
+				errorMessage += "BillingAddress is required. ";
+			}
+
+			if (item.BillingCity.IsNullOrWhiteSpace())
+			{
+				errorMessage += "BillingCity is required. ";
+			}
+
+			if (item.BillingState.IsNullOrWhiteSpace())
+			{
+				errorMessage += "BillingState is required. ";
+			}
+
+			if (item.BillingZip.IsNullOrWhiteSpace())
+			{
+				errorMessage += "BillingZip is required. ";
 			}
 
 			errorMessage = errorMessage.TrimSafely();
