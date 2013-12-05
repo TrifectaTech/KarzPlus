@@ -41,7 +41,7 @@ namespace KarzPlus.Tests
 			string email = string.Format("emailaddress{0}@test.com", rand.Next(1, 1000000000));
 
 			MembershipCreateStatus status;
-			MembershipUser user = Membership.CreateUser(userName, passWord, email, string.Empty, string.Empty, true, out status);
+			MembershipUser user = Membership.CreateUser(userName, passWord, email, "quieres apple?", "no, apple es para mujeres", true, out status);
 			if (user != null && user.ProviderUserKey is Guid)
 			{
 				userId = (Guid)user.ProviderUserKey;
@@ -163,7 +163,7 @@ namespace KarzPlus.Tests
 			Transaction entity = TransactionManager.Load(TransactionTestObject.TransactionId.Value);
 			Assert.IsNotNull(entity, "Transaction object was null");
 
-			string newCreditCard = entity.CreditCardNumber.Reverse();
+			string newCreditCard = string.Format("{0}{1}", entity.CreditCardNumber.Suffix(8), entity.CreditCardNumber.SafeSubstring(8));
 			DateTime newExpiration = entity.ExpirationDate.AddYears(1).Date;
 
 			entity.CreditCardNumber = newCreditCard;
