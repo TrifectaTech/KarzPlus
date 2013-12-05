@@ -21,6 +21,11 @@ namespace KarzPlus.Entities
 	{
 		public bool IsItemModified { get; set; }
 
+        /// <summary>
+        /// Flag indicating this transaction entity is an actual rental order being saved
+        /// </summary>
+        public bool IsRentalTransactionInProgress { get; set; }
+
         private int? transactionId;
 
         /// <summary>

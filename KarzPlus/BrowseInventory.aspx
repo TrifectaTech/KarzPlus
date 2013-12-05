@@ -67,9 +67,9 @@
     <table>
         <tr>
             <td>
-                <telerik:RadGrid ID="grdresults" AutoGenerateColumns="false" OnNeedDataSource="grdresults_NeedDataSource" runat="server" Width="100%"
-                        OnDetailTableDataBind="grdresults_DetailTableDataBind" Skin="MetroTouch">
-                    <MasterTableView Name="CarDisplay" DataKeyNames="InventoryId, MakeId, ModelId">
+                <telerik:RadGrid ID="grdresults" AutoGenerateColumns="false" OnNeedDataSource="grdresults_NeedDataSource" runat="server" Width="100%" OnItemCommand="grdresults_OnItemCommand"
+                        OnDetailTableDataBind="grdresults_DetailTableDataBind" Skin="MetroTouch" OnItemDataBound="grdresults_OnItemDataBound">
+                    <MasterTableView Name="CarDisplay" DataKeyNames="InventoryId, MakeId, ModelId, Quantity">
                         <Columns>
                             <telerik:GridBoundColumn DataField="MakeName" HeaderText="Make" UniqueName="MakeName" />
                             <telerik:GridBoundColumn DataField="ModelName" HeaderText="Model" UniqueName="ModelName" />
@@ -80,7 +80,12 @@
                         <DetailTables>
                             <telerik:GridTableView Name="ItemDetails" DataKeyNames="InventoryId">
                         <Columns>
-                            <telerik:GridButtonColumn ButtonType="PushButton" Text="Place Rental Order" />
+                            
+                            <telerik:GridTemplateColumn>
+                                <ItemTemplate>
+                                    <telerik:RadButton runat="server" ID="btnPlaceRentalOrder" CommandName="PlaceRentalOrder" Text="Place Rental Order" Width="150px" Height="35px"/>
+                                </ItemTemplate>
+                            </telerik:GridTemplateColumn>
                             <telerik:GridBoundColumn DataField="Year" HeaderText="Car Year" UniqueName="Year" />
                             <telerik:GridBoundColumn DataField="Color" HeaderText="Color" UniqueName="Color" />
                             <telerik:GridNumericColumn DataField="Price" HeaderText="Price" UniqueName="Price" NumericType="Currency"/>

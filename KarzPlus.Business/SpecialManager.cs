@@ -67,6 +67,39 @@ namespace KarzPlus.Business
         }
 
         /// <summary>
+        /// Determines if the supplied special can be applied to this transaction
+        /// </summary>
+        /// <param name="special"></param>
+        /// <param name="transaction"></param>
+        /// <returns>True if applies, false otherwise</returns>
+        public static bool DoesSpecialApply(Special special, Transaction transaction)
+        {
+            return DateTimeMethods.DoDatesOverlap(special.DateStart, 
+                                                  special.DateEnd, 
+                                                  transaction.RentalDateStart,
+                                                  transaction.RentalDateEnd);
+        }
+
+
+        /// <summary>
+        /// Loads a special for a transaction if any
+        /// </summary>
+        /// <param name="transaction"></param>
+        /// <returns></returns>
+        public static Special LoadSpecialForTransaction(Transaction transaction)
+        {
+            List<Special> allSpecials = LoadByInventoryId(transaction.InventoryId).ToList();
+
+            Special foundSpecial =
+                allSpecials.FirstOrDefault(
+                    dd =>
+                        DateTimeMethods.DoDatesOverlap(dd.DateStart, dd.DateEnd, transaction.RentalDateStart,
+                            transaction.RentalDateEnd));
+
+            return foundSpecial;
+        }
+
+        /// <summary>
         /// Validate Special Entity
         /// </summary>
         /// <param name="item">Entity to validate</param>

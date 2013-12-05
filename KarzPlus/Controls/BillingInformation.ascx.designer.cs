@@ -10,7 +10,7 @@
 namespace KarzPlus.Controls {
     
     
-    public partial class TransactionConfiguration {
+    public partial class BillingInformation {
         
         /// <summary>
         /// pnlErrorMessage control.
@@ -218,23 +218,5 @@ namespace KarzPlus.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valZip;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnSave;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnCancel;
     }
 }

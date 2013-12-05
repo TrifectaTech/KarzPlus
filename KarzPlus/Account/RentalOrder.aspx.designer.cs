@@ -13,6 +13,15 @@ namespace KarzPlus.Account {
     public partial class RentalOrder {
         
         /// <summary>
+        /// RadWindowManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadWindowManager RadWindowManager1;
+        
+        /// <summary>
         /// decorator control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,24 @@ namespace KarzPlus.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitle;
+        
+        /// <summary>
+        /// pnlErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlErrorMessage;
+        
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
         /// ddlUserPaymentInfo control.
@@ -94,13 +121,13 @@ namespace KarzPlus.Account {
         protected global::Telerik.Web.UI.RadNumericTextBox txtTotal;
         
         /// <summary>
-        /// trConfig control.
+        /// ucPaymentForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::KarzPlus.Controls.TransactionConfiguration trConfig;
+        protected global::KarzPlus.Controls.BillingInformation ucPaymentForm;
         
         /// <summary>
         /// chbxTermConditions control.
@@ -110,5 +137,14 @@ namespace KarzPlus.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chbxTermConditions;
+        
+        /// <summary>
+        /// btnPlaceRentalOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnPlaceRentalOrder;
     }
 }

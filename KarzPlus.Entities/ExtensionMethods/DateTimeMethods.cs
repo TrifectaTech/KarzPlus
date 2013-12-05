@@ -269,7 +269,7 @@ namespace KarzPlus.Entities.ExtensionMethods
 			return DoDatesOverlap(dateToValidate, dateToValidate, startDate, endDate);
 		}
 
-	    public static int GetAmountOfDaysBetweenDates(this DateTime startDate, DateTime endDate)
+	    public static int DaysBetween(this DateTime startDate, DateTime endDate)
 		{
             int counter = 0;
             if (startDate < endDate)

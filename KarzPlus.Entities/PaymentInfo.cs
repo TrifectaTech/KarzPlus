@@ -220,9 +220,13 @@ namespace KarzPlus.Entities
             }
         }
 
-        public string PaymentInfoDisplay()
+        public string PaymentInfoDisplay
         {
-            return string.Format("PaymentInfoId: {0}, CCNumber-ExpDate: {1}-{2} ; BillingAddress: {3}, Zip: {4};", PaymentInfoId,CreditCardNumber.Suffix(4),ExpirationDate.Date, BillingAddress, BillingZip);
+            get
+            {
+                return string.Format("CCNumber-ExpDate: {0}-{1} ; BillingAddress: {2}, Zip: {3};",
+                    CreditCardNumber.Suffix(4), ExpirationDate.Date.ToShortDateString(), BillingAddress, BillingZip);
+            }
         }
 
         /// <summary>

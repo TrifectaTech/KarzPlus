@@ -189,5 +189,46 @@ namespace KarzPlus
             LoadCarModelsOnMake();
         }
 
+        protected void grdresults_OnItemCommand(object sender, GridCommandEventArgs e)
+        {
+            if (e.Item is GridDataItem &&
+                e.Item.OwnerTableView.Name.Equals("ItemDetails") &&
+                e.CommandName.SafeEquals("PlaceRentalOrder", StringComparison.CurrentCultureIgnoreCase))
+            {
+                GridDataItem item = e.Item as GridDataItem;
+
+                int inventoryId = (int) item.GetDataKeyValue("InventoryId");
+
+                Response.Redirect(string.Format("~/Account/RentalOrder.aspx?ID={0}", inventoryId));
+            }
+        }
+
+        protected void grdresults_OnItemDataBound(object sender, GridItemEventArgs e)
+        {
+            if (e.Item is GridDataItem &&
+                e.Item.OwnerTableView.Name.Equals("ItemDetails"))
+            {
+                GridDataItem item = e.Item as GridDataItem;
+
+                GridDataItem parentItem = item.OwnerTableView.ParentItem;
+
+                if (parentItem != null)
+                {
+                    int quantity = (int) parentItem.GetDataKeyValue("Quantity");
+
+                    if (quantity == 0)
+                    {
+                        RadButton btnPlaceRentalOrder = item.FindControl("btnPlaceRentalOrder") as RadButton;
+
+                        if (btnPlaceRentalOrder != null)
+                        {
+                            btnPlaceRentalOrder.Text = "Out of Stock";
+
+                            btnPlaceRentalOrder.Enabled = false;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

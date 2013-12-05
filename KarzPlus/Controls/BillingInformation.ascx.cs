@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,8 +13,92 @@ using KarzPlus.Base;
 
 namespace KarzPlus.Controls
 {
-    public partial class TransactionConfiguration : BaseControl
+    public partial class BillingInformation : BaseControl
     {
+
+        public string BillingAddress
+        {
+            get
+            {
+                return txtBillingAddress.Text;
+            }
+            set
+            {
+                txtBillingAddress.Text = value;
+            }
+        }
+
+        public string BillingCity
+        {
+            get
+            {
+                return txtCity.Text;
+            }
+            set
+            {
+                txtCity.Text = value;
+            }
+        }
+
+        public string BillingStateCode
+        {
+            get
+            {
+                return ddlStates.SelectedValue;
+            }
+            set
+            {
+                ddlStates.SelectedValue = value;
+            }
+        }
+
+        public string BillingZipCode
+        {
+            get
+            {
+                return txtZip.Text;
+            }
+            set
+            {
+                txtZip.Text = value;
+            }
+        }
+
+        public string CreditCardNumber
+        {
+            get
+            {
+                return txtCreditCardNumber.Text;
+            }
+            set
+            {
+                txtCreditCardNumber.Text = value;
+            }
+        }
+
+        public int BillingCCV
+        {
+            get
+            {
+                return (int)txtCCV.Value.GetValueOrDefault();
+            }
+            set
+            {
+                txtCCV.Value = value;
+            }
+        }
+
+        public DateTime CreditCardExpirationDate
+        {
+            get
+            {
+                return dtExpirationDate.SelectedDate.GetValueOrDefault();
+            }
+            set
+            {
+                dtExpirationDate.SelectedDate = value;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +114,7 @@ namespace KarzPlus.Controls
             ddlStates.SelectedValue = pInfo.BillingState;
             txtZip.Text = pInfo.BillingZip;
             txtCreditCardNumber.Text = pInfo.CreditCardNumber;
-            txtCCV.Text = pInfo.CCV.ToString();
+            txtCCV.Text = pInfo.CCV.ToString(CultureInfo.InvariantCulture);
             dtExpirationDate.SelectedDate = pInfo.ExpirationDate;
         }
 
