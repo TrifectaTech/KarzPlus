@@ -3,28 +3,37 @@
 <configuration>
   <connectionStrings>
 		<!--JD-->
-		<!--<add name="KarzPlusConnectionString"
+<<<<<<< HEAD
+		<add name="KarzPlusConnectionString"
 						 connectionString="Server=KENNETH-PC\MSSQL2012;Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
 						 providerName="System.Data.SqlClient" />
 		<add name="MembershipConnectionString"
 				 connectionString="Server=KENNETH-PC\MSSQL2012;Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
+				 providerName="System.Data.SqlClient" />
+=======
+		<!--<add name="KarzPlusConnectionString"
+						 connectionString="Server=JDDEV\JDSQL;Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
+						 providerName="System.Data.SqlClient" />
+		<add name="MembershipConnectionString"
+				 connectionString="Server=JDDEV\JDSQL;Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
 				 providerName="System.Data.SqlClient" />-->
+>>>>>>> 94a9fbf5bf6e95dc8130010cc0ffc3de51cd5908
 
 		<!--JO-->
-		<!--<add name="KarzPlusConnectionString"
+		<add name="KarzPlusConnectionString"
 						 connectionString="Server=(Local);Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
 						 providerName="System.Data.SqlClient" />
 		<add name="MembershipConnectionString"
 				 connectionString="Server=(Local);Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
-				 providerName="System.Data.SqlClient" />-->
+				 providerName="System.Data.SqlClient" />
 		
 		<!--KE-->
-		<add name="KarzPlusConnectionString"
-				 connectionString="Server=KENNETH-PC\MSSQL2012;Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
+		<!--<add name="KarzPlusConnectionString"
+				 connectionString="Server=(Local);Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
 				 providerName="System.Data.SqlClient" />
 		<add name="MembershipConnectionString"
-				 connectionString="Server=KENNETH-PC\MSSQL2012;Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
-				 providerName="System.Data.SqlClient" />
+				 connectionString="Server=(Local);Database=KarzPlus;User Id=KarzPlus;Password=Kar$++;"
+				 providerName="System.Data.SqlClient" />-->
   </connectionStrings>
   <system.web>
     <membership defaultProvider="KarzPlusAspNetSqlMembershipProvider">

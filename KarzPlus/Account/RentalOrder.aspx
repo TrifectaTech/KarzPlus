@@ -3,7 +3,7 @@
 <%@ Register Src="~/Controls/BillingInformation.ascx" TagPrefix="TC" TagName="transConfig" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <telerik:RadWindowManager ID="RadWindowManager1" runat="server" Skin="BlackMetroTouch" Behaviors="None" 
+    <telerik:RadWindowManager ID="RadWindowManager1" runat="server" Skin="BlackMetroTouch" Behaviors="None"
         Title="Success" VisibleStatusbar="False" Modal="True" Width="1000px" Height="600px" />
 
     <telerik:RadCodeBlock runat="server">
@@ -17,7 +17,7 @@
 
             function RedirectToBrowseInventory() {
                 window.location.assign('<%= ResolveUrl("~/BrowseInventory.aspx") %>');
-        }
+            }
 
         </script>
 
@@ -35,11 +35,11 @@
         <br />
 
         <asp:Panel runat="server" ID="pnlErrorMessage" CssClass="container alert-danger" Visible="False">
-            <br/>
-            <br/>
+            <br />
+            <br />
             <asp:Label runat="server" ID="lblError" />
-            <br/>
-            <br/>
+            <br />
+            <br />
         </asp:Panel>
 
         <table>
@@ -59,7 +59,7 @@
                 <td>Rental Start Date:
                 </td>
                 <td>
-                    <telerik:RadDatePicker ID="dtStartDate" runat="server" MaxDate="1/1/2099" OnSelectedDateChanged="dtStartDate_OnSelectedDateChanged" />
+                    <telerik:RadDatePicker ID="dtStartDate" runat="server" MaxDate="1/1/2099" OnSelectedDateChanged="dtStartDate_OnSelectedDateChanged" AutoPostBack="True" />
                 </td>
 
             </tr>
@@ -67,7 +67,7 @@
                 <td>Rental End Date:
                 </td>
                 <td>
-                    <telerik:RadDatePicker ID="dtEndDate" runat="server" MaxDate="1/1/2099" OnSelectedDateChanged="dtEndDate_OnSelectedDateChanged" />
+                    <telerik:RadDatePicker ID="dtEndDate" runat="server" MaxDate="1/1/2099" OnSelectedDateChanged="dtEndDate_OnSelectedDateChanged" AutoPostBack="True" />
                 </td>
 
             </tr>
