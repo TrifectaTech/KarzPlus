@@ -64,6 +64,8 @@ namespace KarzPlus
             if (!IsPostBack)
             {
                 LoadDropDowns();
+
+                lblTitle.Text = Page.Title;
             }
         }
 

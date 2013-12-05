@@ -6,11 +6,14 @@
     <asp:Panel runat="server" ID="pnlBuffer" Visible="<%# User.Identity.IsAuthenticated %>">
         <br />
     </asp:Panel>
+    
+     <h2>
+            <asp:Label ID="lblTitle" runat="server" /></h2>
 
     <telerik:RadAjaxLoadingPanel ID="loadingpnl" runat="server" Skin="MetroTouch" />
     <telerik:RadAjaxPanel ID="ajpnl" runat="server" LoadingPanelID="loadingpnl">
         <telerik:RadFormDecorator ID="RadFormDecorator1" runat="server" Skin="MetroTouch" DecoratedControls="Default" />
-        <asp:Panel ID="pnlSearch" runat="server" HorizontalAlign="Center" GroupingText="Search">
+        <asp:Panel ID="pnlSearch" runat="server" CssClass="container" GroupingText="Search">
             <table>
                 <tr>
                     <td>Car Make:
