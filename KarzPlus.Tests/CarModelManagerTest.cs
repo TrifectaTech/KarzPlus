@@ -84,7 +84,7 @@ namespace KarzPlus.Tests
 		public void CarModelLoadTest()
 		{
 			Assert.IsNotNull(CarModelTestObject, "Test object was null");
-			Assert.IsNotNull(CarModelTestObject.ModelId, "Test object was not saved succesffully");
+			Assert.IsNotNull(CarModelTestObject.ModelId, "Test object was not saved successfully");
 
 			CarModel entity = CarModelManager.Load(CarModelTestObject.ModelId.Value);
 			Assert.IsNotNull(entity, "CarModel object was null");
@@ -100,7 +100,7 @@ namespace KarzPlus.Tests
 		public void CarModelSaveTest()
 		{
 			Assert.IsNotNull(CarModelTestObject, "Test object was null");
-			Assert.IsNotNull(CarModelTestObject.ModelId, "Test object was not saved succesffully");
+			Assert.IsNotNull(CarModelTestObject.ModelId, "Test object was not saved successfully");
 
 			CarModel entity = CarModelManager.Load(CarModelTestObject.ModelId.Value);
 			Assert.IsNotNull(entity, "CarModel object was null");
