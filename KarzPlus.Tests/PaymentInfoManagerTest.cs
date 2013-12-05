@@ -129,7 +129,7 @@ namespace KarzPlus.Tests
             string address = PaymentInfoTestObject.BillingAddress;
             string ccNumber = PaymentInfoTestObject.CreditCardNumber;
 
-            PaymentInfoTestObject.BillingCity = string.Empty;
+            PaymentInfoTestObject.BillingAddress = string.Empty;
             PaymentInfoTestObject.CreditCardNumber = "dfasdf34234";
 
             valid = PaymentInfoManager.Validate(PaymentInfoTestObject, out errorMessage);
