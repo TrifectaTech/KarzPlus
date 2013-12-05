@@ -102,6 +102,11 @@
     <Content Include="Admin\ManageInventory.aspx" />
     <Content Include="Admin\ManageLocation.aspx" />
     <Content Include="Admin\ManageSpecials.aspx" />
+    <Content Include="Content\Images\BMWX6.jpg" />
+    <Content Include="Content\Images\Bugatti.jpg" />
+    <Content Include="Content\Images\GT3.jpg" />
+    <Content Include="Content\Images\GTR.jpg" />
+    <Content Include="Content\Images\TheBoss.jpg" />
     <Content Include="Controls\CarMakeConfiguration.ascx" />
     <Content Include="Controls\CarModelConfiguration.ascx" />
     <Content Include="Controls\InventoryConfiguration.ascx" />
@@ -114,11 +119,6 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\AltimaCoupe.jpg" />
-    <Content Include="Content\Images\BMW328i.jpg" />
-    <Content Include="Content\Images\AudiA4.jpg" />
-    <Content Include="Content\Images\Boss302.jpg" />
-    <Content Include="Content\Images\car_landscape.jpg" />
     <Content Include="Content\Images\KarzPlusLogoHeader.png" />
     <Content Include="Content\jquery.bxslider.css" />
     <Content Include="Content\Site.css" />
@@ -395,7 +395,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
