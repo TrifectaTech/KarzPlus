@@ -113,7 +113,7 @@ namespace KarzPlus.Tests
 		public void InventoryLoadTest()
 		{
 			Assert.IsNotNull(InventoryTestObject, "Test object was null");
-			Assert.IsNotNull(InventoryTestObject.InventoryId, "Test object was not saved succesffully");
+			Assert.IsNotNull(InventoryTestObject.InventoryId, "Test object was not saved successfully");
 
 			Inventory entity = InventoryManager.Load(InventoryTestObject.InventoryId.Value);
 			Assert.IsNotNull(entity, "Inventory object was null");
@@ -133,7 +133,7 @@ namespace KarzPlus.Tests
 		public void InventorySaveTest()
 		{
 			Assert.IsNotNull(InventoryTestObject, "Test object was null");
-			Assert.IsNotNull(InventoryTestObject.InventoryId, "Test object was not saved succesffully");
+			Assert.IsNotNull(InventoryTestObject.InventoryId, "Test object was not saved successfully");
 
 			Inventory entity = InventoryManager.Load(InventoryTestObject.InventoryId.Value);
 			Assert.IsNotNull(entity, "Inventory object was null");
