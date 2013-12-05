@@ -48,7 +48,14 @@ namespace KarzPlus.Business
 
             return Search(search);
         }
-	     
+
+        public static IEnumerable<PaymentInfo> LoadAll()
+        {
+            SearchPaymentInfo search = new SearchPaymentInfo();
+
+            return Search(search);
+        }
+
         /// <summary>
         /// Loads PaymentInfo by the id parameter
         /// </summary>
